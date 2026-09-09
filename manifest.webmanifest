@@ -1,0 +1,11 @@
+{
+  "name": "骗子宠物馆：黑月酒桌",
+  "short_name": "黑月酒桌",
+  "description": "中文单机宠物心理欺骗卡牌游戏",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080508",
+  "theme_color": "#10080f",
+  "icons": [{"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

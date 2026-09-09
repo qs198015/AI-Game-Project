@@ -1,102 +1,162 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10080f">
+  <meta name="description" content="《骗子宠物馆：黑月酒桌》是一款中文单机宠物心理欺骗卡牌游戏。">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>骗子宠物馆：黑月酒桌</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="assets/portraits/black-cat.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <section class="cinematic" id="introCinematic" data-stage="dark" aria-label="黑月酒馆开场动画">
+    <button class="cinematic-skip" id="skipIntroBtn">跳过动画　›</button>
+    <div class="cinematic-noise"></div><div class="cinematic-vignette"></div>
+    <div class="intro-moon"><span>☾</span></div>
+    <div class="intro-logo"><small>BLACK MOON TAVERN</small><h1>骗子宠物馆</h1><p>黑 月 酒 桌</p><i></i><i></i><i></i><i></i></div>
+    <div class="street-scene">
+      <div class="street-moon">☾</div><div class="street-fog"></div>
+      <div class="building"><div class="roof"></div><div class="tavern-sign">骗子宠物馆<small>BLACK MOON</small></div><div class="door"><b>☾</b></div><i class="window-light"></i><i class="window-light"></i></div>
+      <p class="scene-caption">旧钟街尽头，有一扇比墙多出来的门。</p>
+    </div>
+    <div class="door-transition"><span>☾</span></div>
+    <div class="tavern-reveal"><div class="reveal-table">☾<i></i><i></i></div><div class="reveal-candles"><b>♨</b><b>♨</b></div></div>
+    <div class="intro-character" data-character="cat"><img src="assets/portraits/black-cat.svg" alt="黑猫酒保夜影"><div><small>黑猫酒保</small><h2>夜影</h2><p>“盖住牌，报出名字。被拆穿的人——负责今晚的笑话。”</p></div></div>
+    <div class="intro-character" data-character="fox"><img src="assets/portraits/fox.svg" alt="狐狸赌徒红尾"><div><small>狐狸赌徒</small><h2>红尾</h2><p>“你可以相信我。聪明人通常都会后悔。”</p></div><span class="shuffle-cards">🂠 🂠 🂠</span></div>
+    <div class="intro-character" data-character="crow"><img src="assets/portraits/crow.svg" alt="乌鸦骗子鸦策"><div><small>心理战大师</small><h2>鸦策</h2><p>“别看牌。我正在观察你为什么想看牌。”</p></div></div>
+    <div class="intro-character" data-character="rabbit"><img src="assets/portraits/rabbit.svg" alt="兔子贵族雪球"><div><small>危险贵族</small><h2>雪球</h2><p>“请放心，我的微笑从来没有藏过刀。今天除外。”</p></div></div>
+    <div class="intro-final"><span>☾</span><p>门已经关上。现在，轮到你撒谎。</p></div>
+  </section>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="tavern-backdrop" aria-hidden="true">
+    <div class="moon-window"><span>☾</span><i></i></div>
+    <div class="bottle-shelf left"><i></i><i></i><i></i><i></i></div>
+    <div class="bottle-shelf right"><i></i><i></i><i></i></div>
+    <div class="hanging-sign">THE BLACK MOON</div>
+  </div>
   <main class="game-shell" id="gameApp">
-    <section class="hero" id="menuScreen">
-      <div class="moon">🌙</div>
-      <p class="eyebrow">黑月酒馆 · 单机原型</p>
-      <h1>骗子宠物馆</h1>
-      <p class="subtitle">黑月酒桌</p>
-      <p class="intro">这里没有朋友，只有还没被骗的人。</p>
-      <button class="primary" id="startBtn">🐾 开始骗人</button>
+    <section class="hero screen" id="menuScreen">
+      <div class="hero-moon">☾</div>
+      <p class="eyebrow">第一章 · 黑猫入局</p>
+      <h1>骗子宠物馆</h1><p class="subtitle">黑 月 酒 桌</p>
+      <div class="hero-cast" aria-label="本局角色">🐱 <span>🐶</span> 🦊 <span>🐰</span></div>
+      <p class="intro">四只宠物，一桌假话。<br>别相信那只拿着鸡腿的兔子。</p>
+      <nav class="menu-actions" aria-label="主菜单">
+        <button class="primary large" id="startBtn">开始游戏</button>
+        <button id="charactersBtn">角色介绍</button>
+        <button id="collectionBtn">卡牌收藏</button>
+        <button id="settingsBtn">设置</button>
+      </nav>
+      <button class="text-btn" id="rulesBtn">如何骗人？</button>
     </section>
 
-    <section class="battle hidden" id="battleScreen" aria-live="polite">
-      <header class="hud">
-        <div class="pet-panel enemy">
-          <div class="avatar">🐶</div>
-          <div>
-            <strong>铁牙</strong>
-            <small>诚实骗子 · AI</small>
-            <div id="enemyHp" class="hp"></div>
-          </div>
-        </div>
-        <div class="round-info">
-          <span id="roundLabel">第 1 回合</span>
-          <span id="coinsLabel">🪙 0</span>
-        </div>
-        <div class="pet-panel player">
-          <div class="avatar">🐱</div>
-          <div>
-            <strong>夜影</strong>
-            <small>九命诈骗师 · 玩家</small>
-            <div id="playerHp" class="hp"></div>
-          </div>
-        </div>
+    <section class="select-screen screen hidden" id="selectScreen">
+      <p class="eyebrow">选择今晚的骗术师</p>
+      <h2>谁来坐上黑月酒桌？</h2>
+      <p class="select-copy">每位角色拥有一项不同的被动天赋。</p>
+      <div class="character-grid" id="characterGrid"></div>
+      <div class="selected-skill" id="selectedSkill"></div>
+      <button class="primary large" id="confirmCharacterBtn">带他入局</button>
+      <button class="text-btn" id="backToMenuBtn">返回门外</button>
+    </section>
+
+    <section class="battle hidden" id="battleScreen">
+      <header class="topbar">
+        <div><small>第一章</small><strong id="roundLabel">第 1 / 8 局</strong></div>
+        <div class="chapter-progress"><i id="progressBar"></i></div>
+        <div class="currency" id="coinsLabel">🪙 0</div>
+        <div class="streak" id="streakLabel">🔥 0</div>
+        <div class="turn-callout" id="turnCallout">你的回合</div>
+        <button class="icon-btn" id="soundBtn" aria-label="切换音效">🔊</button>
+        <button class="icon-btn" id="battleSettingsBtn" aria-label="打开设置">⚙</button>
+        <button class="icon-btn" id="skipMotionBtn" aria-label="跳过当前动画" title="跳过当前动画">⏩</button>
       </header>
 
+      <section class="opponents" id="opponents" aria-label="酒桌对手"></section>
+
       <section class="table-zone">
-        <div class="speech" id="enemySpeech">🐶 铁牙：我发誓，我今天很诚实。</div>
-        <div class="table">
-          <div class="candle left">🕯️</div>
+        <div class="tension-meter" id="tensionMeter"><span>对手怀疑</span><div><i id="suspicionBar"></i></div><b id="suspicionLabel">尚未出牌</b></div>
+        <div class="event-banner hidden" id="eventBanner"></div>
+        <div class="speech" id="enemySpeech"><b>乌鸦老板</b><span>挑一张牌。真话也可以骗人。</span></div>
+        <div class="table" id="table">
+          <div class="table-rim"></div><span class="candle left">♨</span><span class="candle right">♨</span>
+          <div class="table-props" aria-hidden="true"><span>🍷</span><span>🔑</span><span>🍺</span></div>
           <div class="moon-seal">☾</div>
-          <div class="candle right">🕯️</div>
-          <div class="center-card" id="centerCard">🂠</div>
-          <div class="result" id="resultText">轮到你出牌</div>
+          <div class="played-stack"><div class="center-card" id="centerCard"><span>☾</span></div></div>
+          <div class="result" id="resultText">轮到夜影出牌</div>
+          <div class="table-fx" id="tableFx" aria-hidden="true"></div>
         </div>
+      </section>
+
+      <section class="player-strip">
+        <div class="player-portrait"><span id="playerAvatar">🐱</span><div><strong id="playerName">夜影</strong><small id="playerTitle">九命诈骗师 · 你</small></div></div>
+        <div class="hp" id="playerHp" aria-label="夜影生命值"></div>
       </section>
 
       <section class="hand-area">
-        <div class="hand-title">你的手牌</div>
+        <div class="section-title"><span>你的手牌</span><small id="selectionHint">选择 1–3 张</small></div>
         <div class="hand" id="hand"></div>
       </section>
 
-      <section class="claim-area">
-        <div class="control-group">
-          <label for="claimSelect">你要宣称：</label>
-          <select id="claimSelect">
-            <option value="bone">黄金骨头</option>
-            <option value="fish">臭鱼</option>
-            <option value="cheese">贵族奶酪</option>
-          </select>
+      <section class="controls">
+        <div class="claim-row"><label for="claimSelect">🎙 宣称它们都是</label><select id="claimSelect"></select></div>
+        <div class="performances" id="performanceButtons" aria-label="选择演技">
+          <button data-performance="calm" class="active">😐 镇定</button><button data-performance="cute">🥺 无辜</button>
+          <button data-performance="smug">😏 得意</button><button data-performance="taunt">😈 挑衅</button>
         </div>
-        <div class="control-group">
-          <span>表演方式：</span>
-          <div class="performances" id="performanceButtons">
-            <button data-performance="calm">😐 冷静</button>
-            <button data-performance="cute">🥺 无辜</button>
-            <button data-performance="smug">😏 得意</button>
-            <button data-performance="taunt">😈 挑衅</button>
-          </div>
+        <div class="actions">
+          <button id="playBtn" class="primary">盖牌宣称</button>
+          <button id="trustBtn" class="trust hidden">😇 相信</button><button id="challengeBtn" class="danger hidden">🤨 抓他现行</button>
         </div>
       </section>
 
-      <section class="actions">
-        <button id="playBtn" class="primary">🍖 出牌</button>
-        <button id="skillBtn">🐾 猫爪偷牌（1）</button>
-        <button id="trustBtn" disabled>😇 相信铁牙</button>
-        <button id="challengeBtn" disabled>🤨 怀疑铁牙</button>
+      <section class="items">
+        <div class="section-title"><span>诡计口袋</span><small>每件限用一次</small></div>
+        <div id="itemButtons" class="item-buttons"></div>
       </section>
-
-      <section class="log-panel">
-        <h2>酒桌记录</h2>
-        <div class="log" id="log"></div>
-      </section>
+      <details class="log-panel"><summary>📜 酒桌记录</summary><div class="log" id="log"></div></details>
+      <div class="motion-log" id="motionLog" aria-live="polite">夜影正在观察牌桌……</div>
     </section>
 
-    <section class="ending hidden" id="endingScreen">
-      <div class="ending-icon" id="endingIcon">🏆</div>
-      <h2 id="endingTitle">黑月新人骗子</h2>
-      <p id="endingText"></p>
-      <button class="primary" id="restartBtn">🔄 再来一局</button>
+    <section class="ending screen hidden" id="endingScreen">
+      <div class="ending-icon" id="endingIcon">🏆</div><p class="eyebrow">第一章 · 结算</p>
+      <h2 id="endingTitle"></h2><p id="endingText"></p><div class="score-card" id="scoreCard"></div>
+      <div class="unlock-panel" id="unlockPanel"></div>
+      <button class="primary large" id="restartBtn">再骗一桌</button>
+      <button class="text-btn" id="endingMenuBtn">回到酒馆门口</button>
     </section>
   </main>
+
+  <dialog id="guideDialog">
+    <button class="dialog-close" id="closeGuide" aria-label="关闭">×</button><p class="eyebrow">乌鸦老板的三句话教学</p>
+    <h2>盖住牌，张嘴编。</h2>
+    <ol><li><b>选牌并宣称</b>：幻影牌可以冒充任何牌。</li><li><b>观察对手</b>：性格和动作会给线索，但没有绝对答案。</li><li><b>抓错要挨打</b>：骗过对方或识破谎言，对方失去一颗心。</li></ol>
+    <button class="primary" id="guideStartBtn">懂了，开始骗人</button>
+  </dialog>
+  <dialog id="settingsDialog" class="settings-dialog">
+    <button class="dialog-close" id="closeSettings" aria-label="关闭">×</button>
+    <p class="eyebrow">黑月酒馆账本</p><h2>设置与成就</h2>
+    <div class="setting-row"><span>音效</span><button id="settingSoundBtn">🔊 已开启</button></div>
+    <div class="setting-row"><span>动态效果</span><button id="motionBtn">✨ 完整</button></div>
+    <div class="career-stats" id="careerStats"></div>
+    <h3>成就徽章</h3><div class="achievement-grid" id="achievementGrid"></div>
+    <button class="danger reset-save" id="resetSaveBtn">清除本地存档</button>
+  </dialog>
+  <dialog id="codexDialog" class="codex-dialog">
+    <button class="dialog-close" id="closeCodex" aria-label="关闭">×</button>
+    <p class="eyebrow">黑月酒馆常客</p><h2>角色介绍</h2><div class="codex-grid" id="codexGrid"></div>
+  </dialog>
+  <dialog id="collectionDialog" class="collection-dialog">
+    <button class="dialog-close" id="closeCollection" aria-label="关闭">×</button>
+    <p class="eyebrow">乌鸦老板的牌册</p><h2>卡牌收藏</h2><div class="collection-grid" id="collectionGrid"></div>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <footer class="release-footer">试玩版 v1.0 · 本地单机 · 自动保存</footer>
   <script src="game.js"></script>
 </body>
 </html>
