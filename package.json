@@ -1,0 +1,11 @@
+{
+  "name": "black-moon-tavern-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "《骗子宠物馆：黑月酒桌》静态试玩版",
+  "scripts": {
+    "test": "node tests/release-smoke.test.js",
+    "verify": "node scripts/verify-release.mjs"
+  },
+  "engines": {"node": ">=18"}
+}
