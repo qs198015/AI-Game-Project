@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>骗子宠物馆：黑月酒桌</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell" id="gameApp">
+    <section class="hero" id="menuScreen">
+      <div class="moon">🌙</div>
+      <p class="eyebrow">黑月酒馆 · 单机原型</p>
+      <h1>骗子宠物馆</h1>
+      <p class="subtitle">黑月酒桌</p>
+      <p class="intro">这里没有朋友，只有还没被骗的人。</p>
+      <button class="primary" id="startBtn">🐾 开始骗人</button>
+    </section>
+
+    <section class="battle hidden" id="battleScreen" aria-live="polite">
+      <header class="hud">
+        <div class="pet-panel enemy">
+          <div class="avatar">🐶</div>
+          <div>
+            <strong>铁牙</strong>
+            <small>诚实骗子 · AI</small>
+            <div id="enemyHp" class="hp"></div>
+          </div>
+        </div>
+        <div class="round-info">
+          <span id="roundLabel">第 1 回合</span>
+          <span id="coinsLabel">🪙 0</span>
+        </div>
+        <div class="pet-panel player">
+          <div class="avatar">🐱</div>
+          <div>
+            <strong>夜影</strong>
+            <small>九命诈骗师 · 玩家</small>
+            <div id="playerHp" class="hp"></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="table-zone">
+        <div class="speech" id="enemySpeech">🐶 铁牙：我发誓，我今天很诚实。</div>
+        <div class="table">
+          <div class="candle left">🕯️</div>
+          <div class="moon-seal">☾</div>
+          <div class="candle right">🕯️</div>
+          <div class="center-card" id="centerCard">🂠</div>
+          <div class="result" id="resultText">轮到你出牌</div>
+        </div>
+      </section>
+
+      <section class="hand-area">
+        <div class="hand-title">你的手牌</div>
+        <div class="hand" id="hand"></div>
+      </section>
+
+      <section class="claim-area">
+        <div class="control-group">
+          <label for="claimSelect">你要宣称：</label>
+          <select id="claimSelect">
+            <option value="bone">黄金骨头</option>
+            <option value="fish">臭鱼</option>
+            <option value="cheese">贵族奶酪</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <span>表演方式：</span>
+          <div class="performances" id="performanceButtons">
+            <button data-performance="calm">😐 冷静</button>
+            <button data-performance="cute">🥺 无辜</button>
+            <button data-performance="smug">😏 得意</button>
+            <button data-performance="taunt">😈 挑衅</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="playBtn" class="primary">🍖 出牌</button>
+        <button id="skillBtn">🐾 猫爪偷牌（1）</button>
+        <button id="trustBtn" disabled>😇 相信铁牙</button>
+        <button id="challengeBtn" disabled>🤨 怀疑铁牙</button>
+      </section>
+
+      <section class="log-panel">
+        <h2>酒桌记录</h2>
+        <div class="log" id="log"></div>
+      </section>
+    </section>
+
+    <section class="ending hidden" id="endingScreen">
+      <div class="ending-icon" id="endingIcon">🏆</div>
+      <h2 id="endingTitle">黑月新人骗子</h2>
+      <p id="endingText"></p>
+      <button class="primary" id="restartBtn">🔄 再来一局</button>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
