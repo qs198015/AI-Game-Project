@@ -5,5 +5,5 @@ const context={document,localStorage:{getItem(){return null},setItem(){}},naviga
 const api=context.window.__BLACK_MOON__;assert(api,'缺少调试 API');assert.equal(api.PLAYERS.length,4);assert.equal(api.CARDS.length,6);assert.equal(api.AI.length,6);assert(api.claimTrue([{id:'wild',wild:true},{id:'bone'}],'bone'));
 api.endIntro();nodes.get('startBtn').onclick();assert.equal(nodes.get('characterGrid').children.length,4,'角色选择未渲染');nodes.get('confirmCharacterBtn').onclick();assert(nodes.get('hand').children.length>=5,'开局未发牌');nodes.get('hand').children[0].onclick();nodes.get('skipMotionBtn').onclick();assert.match(nodes.get('motionLog').textContent,/快速结算/);
 const html=fs.readFileSync('index.html','utf8'),ids=[...html.matchAll(/id="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size,'HTML 存在重复 ID');
-for(const asset of ['assets/icon.svg','assets/portraits/black-cat.svg','assets/portraits/crow.svg','assets/portraits/fox.svg','assets/portraits/rabbit.svg'])assert(fs.existsSync(asset),`缺少 ${asset}`);
+for(const asset of ['assets/icon.svg','assets/intro/opening.mp4','assets/portraits/black-cat.svg','assets/portraits/crow.svg','assets/portraits/fox.svg','assets/portraits/rabbit.svg'])assert(fs.existsSync(asset),`缺少 ${asset}`);
 console.log('完整流程冒烟通过：开场跳过 → 主菜单 → 角色选择 → 发牌 → 动画跳过');
