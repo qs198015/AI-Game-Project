@@ -30,7 +30,7 @@
   </div>
   <main class="game-shell" id="gameApp">
     <section class="hero screen" id="menuScreen">
-      <div class="scene-art menu-scene" aria-hidden="true"><img src="assets/references/main-menu.png" alt=""></div>
+      <div class="scene-art menu-scene" aria-hidden="true"><img src="assets/main-menu/background.png" alt=""></div>
       <div class="menu-cast" aria-hidden="true">
         <img class="menu-character menu-fox" src="assets/portraits/full/tail.png" alt="">
         <img class="menu-character menu-dog" src="assets/portraits/full/fang.png" alt="">
@@ -46,12 +46,14 @@
         <div class="menu-divider"><i></i><span>♠</span><i></i></div>
         <p class="intro">今晚，真话是最昂贵的谎言。<br><b>看穿他们，或者演得比他们更像。</b></p>
         <nav class="menu-actions" aria-label="主菜单">
-          <button class="primary large" id="startBtn"><small>CHAPTER I</small><span>开始游戏</span><b>›</b></button>
-          <button id="charactersBtn"><span>♜</span><b>角色档案</b><small>认识今晚的受害者</small></button>
-          <button id="collectionBtn"><span>♦</span><b>黑月牌册</b><small>查看卡面与稀有度</small></button>
-          <button id="settingsBtn"><span>⚙</span><b>游戏设置</b><small>音效与动态效果</small></button>
+          <button class="primary large" id="startBtn"><small>QUICK START</small><span>开始游戏</span><b>›</b></button>
+          <button id="rulesBtn"><span>▤</span><b>新手教学</b><small>三句话学会骗人</small></button>
+          <button id="storyModeBtn"><span>♜</span><b>剧情模式</b><small>第一章 · 黑猫入局</small></button>
+          <button id="trialBtn"><span>☾</span><b>黑月试炼</b><small>挑战今晚的牌桌</small></button>
+          <button id="charactersBtn"><span>♞</span><b>宠物图鉴</b><small>认识今晚的受害者</small></button>
+          <button id="settingsBtn"><span>⚙</span><b>设置</b><small>音效与动态效果</small></button>
         </nav>
-        <button class="text-btn" id="rulesBtn">新手规则 · 如何骗人？</button>
+        <button class="text-btn menu-collection-link" id="collectionBtn">♦ 查看黑月牌册</button>
         <p class="menu-status">● 本地单机　／　进度自动保存</p>
       </div>
     </section>
