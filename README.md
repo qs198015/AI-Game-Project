@@ -105,6 +105,11 @@ npm run verify    # 发布文件、引用和核心体积预算
 
 第二阶段在不改变玩法逻辑的前提下统一了黑金黄铜视觉语言：主菜单增加酒馆景深、呼吸光影、动态烛光与十层余烬粒子；角色卡加入暗部渐隐、聚光和黄铜雕花；对局桌面增加木纹、双层桌沿、月相对话徽记，并重新制作翻牌、稀有牌选中与出牌特效。桌面端视觉验收图位于 `artifacts/visual-polish-main-menu.png`、`artifacts/visual-polish-character-select.png` 和 `artifacts/visual-polish-battle-screen.png`。
 
+### 定向视觉资源
+
+- 主菜单直接使用 `assets/main-menu/background.png` 作为背景，六个入口仍由 HTML/CSS/JS 渲染并保持可点击。
+- 剧情老板鸮策使用 `assets/portraits/owl-chief.png`，保留左侧立绘框、金色描边和原有对话动画。
+
 ### 参考图实际渲染路径
 
 主菜单、角色选择、战斗页现在分别通过页面内的 `.menu-scene`、`.select-scene`、`.battle-scene` 图片层直接加载三张参考图，统一酒馆底层通过 `.tavern-reference` 加载 `tavern-style.png`；不再只依赖文档说明或 SVG 占位。核心角色运行时优先使用 `assets/portraits/full/` 的正式立绘。
