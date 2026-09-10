@@ -14,23 +14,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <section class="cinematic" id="introCinematic" data-stage="dark" aria-label="黑月酒馆开场动画">
-    <button class="cinematic-skip" id="skipIntroBtn">跳过动画　›</button>
-    <div class="cinematic-noise"></div><div class="cinematic-vignette"></div>
-    <div class="intro-moon"><span>☾</span></div>
-    <div class="intro-logo"><small>BLACK MOON TAVERN</small><h1>骗子宠物馆</h1><p>黑 月 酒 桌</p><i></i><i></i><i></i><i></i></div>
-    <div class="street-scene">
-      <div class="street-moon">☾</div><div class="street-fog"></div>
-      <div class="building"><div class="roof"></div><div class="tavern-sign">骗子宠物馆<small>BLACK MOON</small></div><div class="door"><b>☾</b></div><i class="window-light"></i><i class="window-light"></i></div>
-      <p class="scene-caption">旧钟街尽头，有一扇比墙多出来的门。</p>
-    </div>
-    <div class="door-transition"><span>☾</span></div>
-    <div class="tavern-reveal"><div class="reveal-table">☾<i></i><i></i></div><div class="reveal-candles"><b>♨</b><b>♨</b></div></div>
-    <div class="intro-character" data-character="cat"><img src="assets/portraits/black-cat.svg" alt="黑猫酒保夜影"><div><small>黑猫酒保</small><h2>夜影</h2><p>“盖住牌，报出名字。被拆穿的人——负责今晚的笑话。”</p></div></div>
-    <div class="intro-character" data-character="fox"><img src="assets/portraits/fox.svg" alt="狐狸赌徒红尾"><div><small>狐狸赌徒</small><h2>红尾</h2><p>“你可以相信我。聪明人通常都会后悔。”</p></div><span class="shuffle-cards">🂠 🂠 🂠</span></div>
-    <div class="intro-character" data-character="crow"><img src="assets/portraits/crow.svg" alt="乌鸦骗子鸦策"><div><small>心理战大师</small><h2>鸦策</h2><p>“别看牌。我正在观察你为什么想看牌。”</p></div></div>
-    <div class="intro-character" data-character="rabbit"><img src="assets/portraits/rabbit.svg" alt="兔子贵族雪球"><div><small>危险贵族</small><h2>雪球</h2><p>“请放心，我的微笑从来没有藏过刀。今天除外。”</p></div></div>
-    <div class="intro-final"><span>☾</span><p>门已经关上。现在，轮到你撒谎。</p></div>
+  <section class="video-intro" id="introCinematic" aria-label="黑月酒馆开场动画">
+    <video id="introVideo" autoplay muted playsinline preload="auto" aria-label="骗子宠物馆：黑月酒桌开场视频">
+      <source src="assets/intro/opening.mp4" type="video/mp4">
+    </video>
+    <button class="video-intro-skip" id="skipIntroBtn">跳过动画　›</button>
   </section>
   <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="tavern-backdrop" aria-hidden="true">
