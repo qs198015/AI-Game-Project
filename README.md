@@ -109,6 +109,7 @@ npm run verify    # 发布文件、引用和核心体积预算
 
 - 主菜单直接使用 `assets/main-menu/background.png` 作为背景，六个入口仍由 HTML/CSS/JS 渲染并保持可点击。
 - 剧情老板鸮策使用 `assets/portraits/owl-chief.png`，保留左侧立绘框、金色描边和原有对话动画。
+- 战斗页通过不可交互的独立背景层加载 `assets/battle/battle-screen.png`，出牌、判断、道具和 HUD 仍由原有界面负责。
 
 ### 参考图实际渲染路径
 
