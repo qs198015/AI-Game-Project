@@ -78,14 +78,16 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 #menuScreen.hero:before,#menuScreen.hero:after{content:none}
 #menuScreen .menu-art{position:absolute;z-index:0;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#080506}
 #menuScreen .menu-hitboxes{position:absolute;z-index:2;left:50%;top:50%;display:block;width:max(100vw,177.58svh);height:max(56.31vw,100svh);margin:0;translate:-50% -50%;pointer-events:none}
-#menuScreen .menu-hitboxes button,#menuScreen .menu-collection-hitbox{position:absolute;display:block;min-width:0;min-height:0;margin:0;padding:0;border:0;border-radius:5px;outline:0;background:transparent;box-shadow:none;color:transparent;opacity:1;pointer-events:auto;cursor:pointer;transition:transform .2s ease,filter .2s ease,background-color .2s ease}
-#menuScreen .menu-hitboxes button:hover,#menuScreen .menu-hitboxes button:focus-visible{transform:scale(1.03);filter:brightness(1.25) drop-shadow(0 0 12px rgba(255,200,80,.9));outline:0;border:0;box-shadow:none;backdrop-filter:brightness(1.18);background:radial-gradient(ellipse,#ffc85024 0,transparent 72%)}
+#menuScreen .menu-hitboxes button,#menuScreen .menu-collection-hitbox{position:absolute;display:block;min-width:0;min-height:0;margin:0;padding:0;border:0;border-radius:0;outline:0;background:transparent;box-shadow:none;color:transparent;opacity:1;pointer-events:auto;cursor:pointer;transition:transform .2s ease,filter .2s ease}
+#menuScreen .menu-hitboxes button:before{content:"";position:absolute;inset:0;background-image:url("assets/main-menu-v2.png");background-repeat:no-repeat;background-size:calc(100% / var(--w)) calc(100% / var(--h));background-position:var(--bx) var(--by);clip-path:polygon(6% 0,94% 0,100% 50%,94% 100%,6% 100%,0 50%);opacity:0;transition:opacity .2s ease;pointer-events:none}
+#menuScreen .menu-hitboxes button:hover,#menuScreen .menu-hitboxes button:focus-visible{transform:scale(1.03);filter:brightness(1.2) drop-shadow(0 0 12px rgba(255,200,80,.9));outline:0;border:0;box-shadow:none;background:transparent}
+#menuScreen .menu-hitboxes button:hover:before,#menuScreen .menu-hitboxes button:focus-visible:before{opacity:1}
 #menuScreen .menu-hitboxes button:active,#menuScreen .menu-collection-hitbox:active{transform:scale(.99)}
-#menuScreen #startBtn{left:.8%;top:25%;width:17.8%;height:9.2%}
-#menuScreen #rulesBtn{left:1.5%;top:34.4%;width:16.5%;height:7.4%}
-#menuScreen #storyModeBtn{left:1.5%;top:42%;width:16.5%;height:7.4%}
-#menuScreen #trialBtn{left:1.5%;top:49.8%;width:16.5%;height:7.4%}
-#menuScreen #charactersBtn{left:1.5%;top:57.4%;width:16.5%;height:7.4%}
-#menuScreen #settingsBtn{left:1.5%;top:65.1%;width:16.5%;height:7.4%}
+#menuScreen #startBtn{--w:.178;--h:.092;--bx:.973%;--by:27.533%;left:.8%;top:25%;width:17.8%;height:9.2%}
+#menuScreen #rulesBtn{--w:.165;--h:.074;--bx:1.796%;--by:37.149%;left:1.5%;top:34.4%;width:16.5%;height:7.4%}
+#menuScreen #storyModeBtn{--w:.165;--h:.074;--bx:1.796%;--by:45.356%;left:1.5%;top:42%;width:16.5%;height:7.4%}
+#menuScreen #trialBtn{--w:.165;--h:.074;--bx:1.796%;--by:53.78%;left:1.5%;top:49.8%;width:16.5%;height:7.4%}
+#menuScreen #charactersBtn{--w:.165;--h:.074;--bx:1.796%;--by:61.987%;left:1.5%;top:57.4%;width:16.5%;height:7.4%}
+#menuScreen #settingsBtn{--w:.165;--h:.074;--bx:1.796%;--by:70.302%;left:1.5%;top:65.1%;width:16.5%;height:7.4%}
 #menuScreen .menu-collection-hitbox{z-index:3;right:1.2%;top:1.7%;width:4.6%;height:8.2%}
 @media(max-width:720px) and (orientation:portrait){#menuScreen .menu-art{object-position:left center}#menuScreen .menu-hitboxes{left:0;translate:0 -50%}}
