@@ -1,7 +1,7 @@
 name: Deploy playable demo to GitHub Pages
 on:
   push:
-    branches: [main, master, work]
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
