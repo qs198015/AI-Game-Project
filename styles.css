@@ -78,8 +78,8 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 #menuScreen.hero:before,#menuScreen.hero:after{content:none}
 #menuScreen .menu-art{position:absolute;z-index:0;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#080506}
 #menuScreen .menu-hitboxes{position:absolute;z-index:2;left:50%;top:50%;display:block;width:max(100vw,177.58svh);height:max(56.31vw,100svh);margin:0;translate:-50% -50%;pointer-events:none}
-#menuScreen .menu-button-image{position:absolute;display:block;width:18.55%;height:10.95%;margin:0;padding:0;object-fit:contain;pointer-events:auto;cursor:pointer;transition:transform .2s ease;transform-origin:center}
-#menuScreen .menu-button-image:hover,#menuScreen .menu-button-image:focus-visible{transform:scale(1.03)}
+#menuScreen .menu-button-image{position:absolute;display:block;width:18.55%;height:10.95%;margin:0;padding:0;border:0;outline:0;box-shadow:none;object-fit:contain;pointer-events:auto;cursor:pointer;filter:none;transition:transform .2s ease,filter .2s ease;transform-origin:center}
+#menuScreen .menu-button-image:hover,#menuScreen .menu-button-image:focus-visible{transform:scale(1.03);filter:brightness(1.12) drop-shadow(0 0 1px #ffe3a0) drop-shadow(0 0 9px rgba(255,190,65,.88));border:0;outline:0;box-shadow:none}
 #menuScreen .menu-button-image:active{transform:scale(.99)}
 #menuScreen #startBtn{left:.2%;top:23.6%}
 #menuScreen #rulesBtn{left:.2%;top:32.7%}
