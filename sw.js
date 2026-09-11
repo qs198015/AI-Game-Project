@@ -1,5 +1,5 @@
-const CACHE = 'black-moon-demo-v1';
-const ASSETS = ['./','./index.html','./styles.css','./game.js','./manifest.webmanifest','./assets/icon.svg','./assets/portraits/black-cat.svg','./assets/portraits/crow.svg','./assets/portraits/fox.svg','./assets/portraits/rabbit.svg'];
+const CACHE = 'black-moon-demo-v2';
+const ASSETS = ['./','./index.html','./styles.css','./game.js','./manifest.webmanifest','./assets/icon.svg','./assets/main-menu-v2.png','./assets/portraits/black-cat.svg','./assets/portraits/crow.svg','./assets/portraits/fox.svg','./assets/portraits/rabbit.svg'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', event => {
