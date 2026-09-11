@@ -74,12 +74,13 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 @media(max-width:720px){.menu-scene img{object-position:58% center}.story-portrait img[src$="owl-chief.png"]{object-position:5% center}}
 
 /* 完整图片主菜单：HTML 只保留与美术稿按钮位置一致的透明点击热区。 */
-#menuScreen.hero{position:relative;display:block;width:min(100%,1671px);min-height:0;aspect-ratio:1671/941;margin:0 auto;padding:0;overflow:hidden;border:0;border-radius:0;background:#080506;box-shadow:none;isolation:isolate}
+#menuScreen.hero{position:relative;display:block;width:100vw;height:100svh;min-height:0;margin:0 calc(50% - 50vw);padding:0;overflow:hidden;border:0;border-radius:0;background:#080506;box-shadow:none;isolation:isolate}
 #menuScreen.hero:before,#menuScreen.hero:after{content:none}
-#menuScreen .menu-art{position:absolute;z-index:0;inset:0;display:block;width:100%;height:100%;object-fit:contain;background:#080506}
-#menuScreen .menu-hitboxes{position:absolute;z-index:2;inset:0;display:block;width:100%;height:100%;margin:0;pointer-events:none}
-#menuScreen .menu-hitboxes button,#menuScreen .menu-collection-hitbox{position:absolute;display:block;min-width:0;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:transparent;opacity:0;pointer-events:auto}
-#menuScreen .menu-hitboxes button:hover,#menuScreen .menu-hitboxes button:active,#menuScreen .menu-hitboxes button:focus-visible,#menuScreen .menu-collection-hitbox:hover,#menuScreen .menu-collection-hitbox:active,#menuScreen .menu-collection-hitbox:focus-visible{opacity:1;transform:none;filter:none;outline:2px solid #ffd98a;outline-offset:-4px;background:#ffd36b18;box-shadow:inset 0 0 22px #ffd36b55}
+#menuScreen .menu-art{position:absolute;z-index:0;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#080506}
+#menuScreen .menu-hitboxes{position:absolute;z-index:2;left:50%;top:50%;display:block;width:max(100vw,177.58svh);height:max(56.31vw,100svh);margin:0;translate:-50% -50%;pointer-events:none}
+#menuScreen .menu-hitboxes button,#menuScreen .menu-collection-hitbox{position:absolute;display:block;min-width:0;min-height:0;margin:0;padding:0;border:2px solid transparent;border-radius:5px;background:transparent;box-shadow:none;color:transparent;opacity:1;pointer-events:auto;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease}
+#menuScreen .menu-hitboxes button:hover,#menuScreen .menu-hitboxes button:focus-visible,#menuScreen .menu-collection-hitbox:hover,#menuScreen .menu-collection-hitbox:focus-visible{transform:scale(1.035);filter:none;outline:0;border-color:#ffd98a;background:#ffd36b14;box-shadow:inset 0 0 26px #ffd36b66,0 0 22px #e7a83b99}
+#menuScreen .menu-hitboxes button:active,#menuScreen .menu-collection-hitbox:active{transform:scale(.99)}
 #menuScreen #startBtn{left:.8%;top:25%;width:17.8%;height:9.2%}
 #menuScreen #rulesBtn{left:1.5%;top:34.4%;width:16.5%;height:7.4%}
 #menuScreen #storyModeBtn{left:1.5%;top:42%;width:16.5%;height:7.4%}
@@ -87,4 +88,4 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 #menuScreen #charactersBtn{left:1.5%;top:57.4%;width:16.5%;height:7.4%}
 #menuScreen #settingsBtn{left:1.5%;top:65.1%;width:16.5%;height:7.4%}
 #menuScreen .menu-collection-hitbox{z-index:3;right:1.2%;top:1.7%;width:4.6%;height:8.2%}
-@media(max-width:720px){#menuScreen.hero{width:calc(100vw - 16px);margin-top:max(8px,env(safe-area-inset-top))}}
+@media(max-width:720px) and (orientation:portrait){#menuScreen .menu-art{object-position:left center}#menuScreen .menu-hitboxes{left:0;translate:0 -50%}}
