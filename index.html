@@ -10,7 +10,19 @@
   <title>骗子宠物馆：黑月酒桌</title>
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="preload" href="assets/references/main-menu-v2.png" as="image" type="image/png">
+  <link rel="preload" href="assets/menu-buttons/button-start-game.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="assets/menu-buttons/button-tutorial.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="assets/menu-buttons/button-story-mode.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="assets/menu-buttons/button-black-moon-trial.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="assets/menu-buttons/button-pet-gallery.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="assets/menu-buttons/button-settings.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="assets/references/main-menu-v2.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="assets/menu-buttons/button-start-game-1.png" as="image" type="image/png">
+  <link rel="preload" href="assets/menu-buttons/button-tutorial-1.png" as="image" type="image/png">
+  <link rel="preload" href="assets/menu-buttons/button-story-mode-1.png" as="image" type="image/png">
+  <link rel="preload" href="assets/menu-buttons/button-black-moon-trial-1.png" as="image" type="image/png">
+  <link rel="preload" href="assets/menu-buttons/button-pet-gallery-1.png" as="image" type="image/png">
+  <link rel="preload" href="assets/menu-buttons/button-settings-1.png" as="image" type="image/png">
   <link rel="preload" href="assets/portraits/full/shadow.png" as="image" type="image/png">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -31,9 +43,9 @@
   </div>
   <main class="game-shell" id="gameApp">
     <section class="hero screen" id="menuScreen">
-      <img class="menu-art" src="assets/references/main-menu-v2.png" alt="骗子宠物馆主菜单，夜影、铁牙、红尾、雪球与鸮策围坐在黑月酒桌前">
+      <img class="menu-art" src="assets/references/main-menu-v2.png" alt="骗子宠物馆主菜单，夜影、铁牙、红尾、雪球与鸮策围坐在黑月酒桌前" decoding="async" fetchpriority="high">
       <nav class="menu-actions menu-hitboxes" aria-label="主菜单">
-        <button class="menu-button-image" id="startBtn" aria-label="开始游戏"><img class="menu-button-default" src="assets/menu-buttons/button-start-game.png" alt=""><img class="menu-button-highlight" src="assets/menu-buttons/button-start-game-1.png" alt=""></button>
+        <button class="menu-button-image" id="startBtn" aria-label="开始游戏"><img class="menu-button-default" src="assets/menu-buttons/button-start-game.png" alt="" decoding="async" fetchpriority="high"><img class="menu-button-highlight" src="assets/menu-buttons/button-start-game-1.png" alt="" decoding="async"></button>
         <button class="menu-button-image" id="rulesBtn" aria-label="新手教学"><img class="menu-button-default" src="assets/menu-buttons/button-tutorial.png" alt=""><img class="menu-button-highlight" src="assets/menu-buttons/button-tutorial-1.png" alt=""></button>
         <button class="menu-button-image" id="storyModeBtn" aria-label="剧情模式"><img class="menu-button-default" src="assets/menu-buttons/button-story-mode.png" alt=""><img class="menu-button-highlight" src="assets/menu-buttons/button-story-mode-1.png" alt=""></button>
         <button class="menu-button-image" id="trialBtn" aria-label="黑月试炼"><img class="menu-button-default" src="assets/menu-buttons/button-black-moon-trial.png" alt=""><img class="menu-button-highlight" src="assets/menu-buttons/button-black-moon-trial-1.png" alt=""></button>
