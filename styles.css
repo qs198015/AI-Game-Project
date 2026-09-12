@@ -119,3 +119,12 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 .select-rivals>div{display:flex;flex-direction:column;justify-content:center;text-align:left;padding:5px 10px;border-right:1px solid #83552e}.select-rivals>div small{color:#9e7652;font:8px Georgia;letter-spacing:.12em}.select-rivals>div b{margin-top:4px;color:#eac57e;font:700 13px Georgia,"Songti SC",serif}
 .select-rivals article{display:flex;align-items:center;gap:8px;min-width:0;padding:5px;border:1px solid #5c3b24;background:#0d0807cc;text-align:left}.select-rivals article img{flex:0 0 38px;width:38px;height:38px;border:1px solid #9b6b37;border-radius:3px;object-fit:cover}.select-rivals article span,.select-rivals article b,.select-rivals article small{display:block;min-width:0}.select-rivals article b{color:#e6bd72;font-size:11px}.select-rivals article small{overflow:hidden;color:#8f7969;font-size:8px;white-space:nowrap;text-overflow:ellipsis}
 @media(max-width:720px){.select-rivals{grid-template-columns:1fr 1fr}.select-rivals>div{grid-column:1/-1;border-right:0;border-bottom:1px solid #83552e;text-align:center}.select-rivals article:last-child{grid-column:1/-1}.select-rivals article{justify-content:center}.select-screen .character-choice:not(.selected){filter:brightness(.76) saturate(.82)}}
+
+/* 新战斗参考图：背景负责酒馆、角色与桌面气氛，HTML HUD 始终保持可交互。 */
+.battle>.battle-scene img{object-position:center top;filter:brightness(.62) saturate(.96) contrast(1.08)}
+.battle>.battle-scene:after{background:linear-gradient(180deg,rgba(6,3,3,.32),rgba(8,4,4,.56) 42%,rgba(5,2,3,.78)),radial-gradient(ellipse at 50% 43%,transparent 18%,rgba(3,2,2,.5) 96%)}
+.battle{background:linear-gradient(180deg,rgba(8,5,5,.3),rgba(7,3,4,.62));backdrop-filter:none}
+.battle .topbar,.battle .opponent,.battle .speech,.battle .player-strip,.battle .hand-area,.battle .controls,.battle .items,.battle .log-panel,.battle .motion-log{backdrop-filter:blur(3px)}
+.battle .opponent{background:linear-gradient(110deg,rgba(35,19,13,.86),rgba(12,7,7,.9))}
+.battle .table{background:radial-gradient(ellipse at 50% 46%,rgba(135,80,46,.9),rgba(86,48,25,.9) 37%,rgba(28,13,8,.94) 76%)}
+@media(max-width:720px){.battle>.battle-scene img{object-position:52% top;filter:brightness(.52) saturate(.9) contrast(1.08)}.battle>.battle-scene:after{background:linear-gradient(rgba(6,3,3,.44),rgba(5,2,3,.82))}.battle .topbar,.battle .opponent,.battle .speech,.battle .player-strip,.battle .hand-area,.battle .controls,.battle .items{backdrop-filter:none}}
