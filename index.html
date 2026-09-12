@@ -44,12 +44,9 @@
   <main class="game-shell" id="gameApp">
     <section class="hero screen" id="menuScreen">
       <img class="menu-art" src="assets/references/main-menu-v2.png" alt="骗子宠物馆主菜单，夜影、铁牙、红尾、雪球与鸮策围坐在黑月酒桌前" decoding="async" fetchpriority="high">
-      <div class="menu-pet-effects" id="menuPetEffects" aria-hidden="true">
-        <span class="pet-motion pet-cat" data-pet="cat"><i class="pet-head-glow"></i><i class="pet-eyelids"></i></span>
-        <span class="pet-motion pet-dog" data-pet="dog"><i class="pet-head-glow"></i><i class="pet-eyelids"></i></span>
-        <span class="pet-motion pet-fox" data-pet="fox"><i class="pet-head-glow"></i><i class="pet-eyelids"></i><i class="pet-ears"></i></span>
-        <span class="pet-motion pet-rabbit" data-pet="rabbit"><i class="pet-eyelids"></i><i class="pet-ears"></i></span>
-        <span class="pet-motion pet-owl" data-pet="owl"><i class="pet-head-glow"></i><i class="pet-eyelids"></i></span>
+      <div class="menu-ambience" aria-hidden="true">
+        <span class="menu-candle"><i class="candle-halo"></i><i class="candle-flame"></i></span>
+        <i class="menu-firefly firefly-one"></i><i class="menu-firefly firefly-two"></i>
       </div>
       <nav class="menu-actions menu-hitboxes" aria-label="主菜单">
         <button class="menu-button-image" id="startBtn" aria-label="开始游戏"><img class="menu-button-default" src="assets/menu-buttons/button-start-game.png" alt="" decoding="async" fetchpriority="high"><img class="menu-button-highlight" src="assets/menu-buttons/button-start-game-1.png" alt="" decoding="async" fetchpriority="low"></button>
@@ -69,6 +66,12 @@
       <p class="select-copy">每位角色拥有一项不同的被动天赋。</p>
       <div class="character-grid" id="characterGrid"></div>
       <div class="selected-skill" id="selectedSkill"></div>
+      <section class="select-rivals" aria-label="今晚可能遇到的 AI 对手">
+        <div><small>BLACK MOON TABLE</small><b>今晚可能遇到的对手</b></div>
+        <article><img src="assets/portraits/crow.svg" alt="鸦策"><span><b>鸦策</b><small>冷静观察 · 擅长读心</small></span></article>
+        <article><img src="assets/portraits/full/fang.png" alt="铁牙"><span><b>铁牙</b><small>直觉敏锐 · 偶尔误判</small></span></article>
+        <article><img src="assets/portraits/full/tail.png" alt="红尾"><span><b>红尾</b><small>演技高超 · 谎话连篇</small></span></article>
+      </section>
       <button class="primary large" id="confirmCharacterBtn">带他入局</button>
       <button class="text-btn" id="backToMenuBtn">返回门外</button>
     </section>
