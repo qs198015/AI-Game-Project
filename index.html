@@ -44,6 +44,13 @@
   <main class="game-shell" id="gameApp">
     <section class="hero screen" id="menuScreen">
       <img class="menu-art" src="assets/references/main-menu-v2.png" alt="骗子宠物馆主菜单，夜影、铁牙、红尾、雪球与鸮策围坐在黑月酒桌前" decoding="async" fetchpriority="high">
+      <div class="menu-pet-effects" id="menuPetEffects" aria-hidden="true">
+        <span class="pet-motion pet-cat" data-pet="cat"><i class="pet-head-glow"></i><i class="pet-eyelids"></i></span>
+        <span class="pet-motion pet-dog" data-pet="dog"><i class="pet-head-glow"></i><i class="pet-eyelids"></i></span>
+        <span class="pet-motion pet-fox" data-pet="fox"><i class="pet-head-glow"></i><i class="pet-eyelids"></i><i class="pet-ears"></i></span>
+        <span class="pet-motion pet-rabbit" data-pet="rabbit"><i class="pet-eyelids"></i><i class="pet-ears"></i></span>
+        <span class="pet-motion pet-owl" data-pet="owl"><i class="pet-head-glow"></i><i class="pet-eyelids"></i></span>
+      </div>
       <nav class="menu-actions menu-hitboxes" aria-label="主菜单">
         <button class="menu-button-image" id="startBtn" aria-label="开始游戏"><img class="menu-button-default" src="assets/menu-buttons/button-start-game.png" alt="" decoding="async" fetchpriority="high"><img class="menu-button-highlight" src="assets/menu-buttons/button-start-game-1.png" alt="" decoding="async" fetchpriority="low"></button>
         <button class="menu-button-image" id="rulesBtn" aria-label="新手教学"><img class="menu-button-default" src="assets/menu-buttons/button-tutorial.png" alt="" decoding="async" fetchpriority="high"><img class="menu-button-highlight" src="assets/menu-buttons/button-tutorial-1.png" alt="" decoding="async" fetchpriority="low"></button>
