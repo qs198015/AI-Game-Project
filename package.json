@@ -5,7 +5,8 @@
   "description": "《骗子宠物馆：黑月酒桌》静态试玩版",
   "scripts": {
     "test": "node tests/release-smoke.test.js",
-    "verify": "node scripts/verify-release.mjs"
+    "verify": "node scripts/verify-release.mjs && node scripts/audit-assets.mjs",
+    "audit:assets": "node scripts/audit-assets.mjs"
   },
   "engines": {"node": ">=18"}
 }
