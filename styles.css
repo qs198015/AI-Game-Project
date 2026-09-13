@@ -371,3 +371,27 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 @keyframes heart-rise{from{opacity:0;transform:scale(.6)}40%{opacity:1}to{opacity:0;transform:translateY(-85px) scale(1.25) rotate(12deg)}}
 @keyframes challenge-stamp{from{opacity:0;transform:scale(1.7) rotate(-8deg)}45%{opacity:1;transform:scale(.92) rotate(3deg)}to{opacity:0;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.battle[data-speaker] .opponent .portrait-motion,.decision-fx *{animation:none!important}}
+
+/* 战斗卡牌与道具精灵表：仅替换绘制层，按钮和数据结构保持原样。 */
+.battle .card-btn,.battle .center-card,.battle .flying-card{background-image:url("assets/battle/cards-and-items/cards_items_sheet_01.png");background-repeat:no-repeat;background-size:448% 231%;background-color:transparent}
+.battle .card-btn.card-honey,.battle .card-btn.card-wild{background-position:35% 0}
+.battle .card-btn.card-bone{background-position:70% 0}
+.battle .card-btn.card-fish{background-position:100% 0}
+.battle .card-btn.card-cheese{background-position:0 100%}
+.battle .card-btn.card-gem{background-position:35% 100%}
+.battle .card-btn .corner,.battle .card-btn .card-rarity,.battle .card-btn .card-suit,.battle .card-btn .card-sigil,.battle .card-btn .emoji{opacity:0}
+.battle .card-btn .name{position:absolute;z-index:3;left:8px;right:8px;bottom:7px;padding:2px 3px;border:1px solid rgba(65,35,17,.45);border-radius:3px;background:rgba(235,214,173,.82);color:#26150d;font-size:10px;line-height:1.2;text-shadow:0 1px rgba(255,255,255,.35)}
+.battle .center-card{background-position:0 0}.battle .center-card>span{opacity:0}
+.battle .center-card.flip[data-card="honey"],.battle .center-card.flip[data-card="wild"]{background-position:35% 0}
+.battle .center-card.flip[data-card="bone"]{background-position:70% 0}.battle .center-card.flip[data-card="fish"]{background-position:100% 0}
+.battle .center-card.flip[data-card="cheese"]{background-position:0 100%}.battle .center-card.flip[data-card="gem"]{background-position:35% 100%}
+.battle .flying-card{background-position:0 0;color:transparent}
+
+.battle .item-icon,.battle .coin-icon,.battle .heart-icon{display:inline-block;background-image:url("assets/battle/cards-and-items/icons_sheet_01.png");background-repeat:no-repeat}
+.battle .item-icon{width:48px;height:42px;margin:auto;background-size:460% 362%}
+.battle .item-sock .item-icon{background-position:100% 64%}.battle .item-hat .item-icon{background-position:36% 64%}.battle .item-leg .item-icon{background-position:70% 64%}
+.battle .item-buttons button{position:relative}.battle .item-buttons button span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.battle .item-buttons button small{position:absolute;right:5px;top:4px;padding:1px 3px;border-radius:5px;background:#120804;color:#f0c878;font-size:9px}
+.battle .coin-icon{width:21px;height:21px;margin-right:4px;vertical-align:middle;background-size:460% 362%;background-position:0 64%}
+.battle .currency span{vertical-align:middle}
+.battle .heart-icon{width:17px;height:15px;margin-right:1px;vertical-align:middle;background-size:517% 494%}
+.battle .heart-icon.full{background-position:5% 95%}.battle .heart-icon.empty{background-position:35% 95%;opacity:.72}
