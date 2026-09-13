@@ -296,3 +296,35 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
   .battle .items{border-image:none;border-color:#8e602e;background:linear-gradient(100deg,rgba(10,4,2,.84),rgba(34,15,7,.72),rgba(8,3,2,.86));box-shadow:inset 0 0 0 3px #070201,0 8px 20px #000a;backdrop-filter:blur(3px)}
   .battle .player-strip{border-image:none;border-color:#9b6a35;background:linear-gradient(90deg,rgba(8,3,2,.9),rgba(36,15,7,.72),rgba(8,3,2,.6));box-shadow:inset 0 0 0 3px #060201,0 8px 22px #000a}
 }
+
+/* 战斗场景终调：烛光方向、桌面接触、贴桌卡牌与暗金玻璃 HUD。 */
+@media(min-width:900px){
+  .battle .opponent:before{content:"";display:block;position:absolute;z-index:2;left:4%;right:4%;bottom:-1%;height:18%;pointer-events:none;border-radius:50%;background:radial-gradient(ellipse,rgba(5,2,1,.88),rgba(14,5,2,.38) 48%,transparent 72%);filter:blur(9px);transform:scaleY(.42)}
+  .battle .opponent:nth-child(1) .portrait-motion>img{filter:brightness(.7) sepia(.12) saturate(.82) contrast(1.1) drop-shadow(7px 0 3px rgba(237,154,64,.15))}
+  .battle .opponent:nth-child(2) .portrait-motion>img{filter:brightness(.82) sepia(.08) saturate(.9) contrast(1.07) drop-shadow(0 0 4px rgba(248,181,82,.2))}
+  .battle .opponent:nth-child(3) .portrait-motion>img{filter:brightness(.75) sepia(.1) saturate(.86) contrast(1.09) drop-shadow(-6px 0 3px rgba(239,151,58,.14))}
+  .battle .opponent.active .portrait-motion>img{filter:brightness(.88) sepia(.06) saturate(.94) contrast(1.08) drop-shadow(0 0 5px color-mix(in srgb,var(--hero-color) 34%,transparent))}
+  .battle .opponent.active .avatar{border:0;box-shadow:none}
+  .battle .opponent .portrait-motion{animation:character-breath-depth 5.6s cubic-bezier(.45,0,.55,1) infinite;transform-origin:50% 92%}
+  .battle .opponent:nth-child(2) .portrait-motion{animation-delay:-1.7s}.battle .opponent:nth-child(3) .portrait-motion{animation-delay:-3.4s}
+
+  .battle .table-zone:after{content:"";position:absolute;z-index:0;inset:10% -16% -2%;pointer-events:none;border-radius:50%;opacity:.34;background:repeating-linear-gradient(7deg,transparent 0 20px,rgba(247,193,106,.08) 21px,transparent 22px 39px),radial-gradient(ellipse at 50% 35%,rgba(206,125,45,.12),transparent 54%);mix-blend-mode:overlay}
+  .battle .center-card{transform:perspective(420px) rotateX(8deg) translateY(4px);border-color:#b77a37;box-shadow:0 3px 0 #261006,0 7px 8px rgba(0,0,0,.7),0 0 5px rgba(232,165,70,.34)}
+  .battle .center-card.flip{transform-origin:center bottom}
+  .battle .card-lanes{transform:perspective(500px) rotateX(7deg);transform-origin:center bottom;opacity:.3}
+  .battle .card-btn{transform-style:preserve-3d;box-shadow:0 4px 1px #2b160c,0 9px 11px rgba(0,0,0,.72)}
+  .battle .card-btn.selected{box-shadow:0 4px 1px #4a2812,0 10px 14px rgba(0,0,0,.76),0 0 10px rgba(226,170,80,.42)}
+
+  .battle .topbar,.battle .opponent>div,.battle .controls .claim-row,.battle .items,.battle .player-strip{background-color:rgba(16,7,3,.5);backdrop-filter:blur(5px) saturate(.82);-webkit-backdrop-filter:blur(5px) saturate(.82)}
+  .battle .opponent>div{background-image:linear-gradient(110deg,rgba(52,27,13,.52),rgba(8,4,2,.64));border-color:rgba(180,126,64,.6)}
+  .battle .topbar{background-image:linear-gradient(180deg,rgba(48,24,11,.66),rgba(12,5,2,.73))}
+  .battle .controls .claim-row{background-image:linear-gradient(110deg,rgba(51,25,11,.58),rgba(9,4,2,.66))}
+  .battle .items,.battle .player-strip{background-image:linear-gradient(100deg,rgba(12,5,2,.68),rgba(48,23,10,.48),rgba(8,3,2,.68))}
+  .battle .actions button,.battle .actions .primary:only-child{background:linear-gradient(180deg,rgba(108,49,35,.86),rgba(51,18,11,.88));box-shadow:inset 0 1px rgba(255,220,157,.16),inset 0 0 0 2px #180904,inset 0 0 0 4px rgba(171,111,49,.78),0 6px 12px rgba(0,0,0,.7)}
+
+  .battle .speech span{width:max-content;max-width:100%}
+  .battle .speech.speech-typing span{overflow:hidden;white-space:nowrap;animation:speech-type .7s steps(var(--speech-chars),end) both}
+}
+@keyframes character-breath-depth{0%,100%{transform:translateY(0) scale(1)}48%{transform:translateY(-2px) scale(1.006)}55%{transform:translateY(-2px) scale(1.007)}75%{transform:translateY(0) scale(1)}}
+@keyframes speech-type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+@media(prefers-reduced-motion:reduce){.battle .opponent .portrait-motion,.battle .speech.speech-typing span{animation:none!important}}

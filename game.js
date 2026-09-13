@@ -142,6 +142,10 @@
     els.enemySpeech.dataset.speaker=String(Math.max(0,speakerIndex));
     const b=document.createElement('b'),s=document.createElement('span');
     b.textContent=name;s.textContent=text;els.enemySpeech.append(b,s);
+    els.enemySpeech.style.setProperty('--speech-chars',Math.max(8,[...text].length));
+    els.enemySpeech.classList.remove('speech-typing');
+    void els.enemySpeech.offsetWidth;
+    els.enemySpeech.classList.add('speech-typing');
   }
   function log(text){const p=document.createElement('p');p.textContent=text;els.log.prepend(p);}
   function toast(text){clearTimeout(toastTimer);els.toast.textContent=text;els.toast.classList.add('show');toastTimer=setTimeout(()=>els.toast.classList.remove('show'),1600);}
