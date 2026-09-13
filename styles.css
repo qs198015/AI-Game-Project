@@ -213,3 +213,56 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 }
 
 @media(max-width:899px){.battle .item-action{display:block}.battle>.battle-scene img{object-position:center top}.battle .actions{grid-template-columns:1fr 1fr}.battle .item-action{grid-column:1/-1}}
+
+/* AI-Game-Project-Assets v1.0 — 真正由无角色背景、透明角色与交互 HUD 组成的战斗场景。 */
+.character-sprite{display:none}
+@media(min-width:900px){
+  .battle>.battle-scene img{filter:brightness(.72) saturate(.92) contrast(1.04)}
+  .battle .battle-firefly{width:30px;height:23px;border-radius:0;background:url("assets/effects/fireflies_and_gold_particles_sheet.png") 0 0/500% 300% no-repeat;box-shadow:none;filter:drop-shadow(0 0 7px #ffc451)}
+  .battle .battle-firefly-two,.battle .battle-firefly-four{background-position:25% 0}
+  .battle-brand{position:absolute;z-index:8;left:22px;top:18px;width:245px;padding:12px 20px;text-align:center;color:#f7d78f;border:2px solid #a66b2d;background:linear-gradient(145deg,#2b1509e8,#0d0603ed);box-shadow:inset 0 0 0 4px #090302,0 10px 30px #000}
+  .battle-brand:before,.battle-brand:after{content:"☾";position:absolute;top:50%;translate:0 -50%;color:#dfaa58}.battle-brand:before{left:7px}.battle-brand:after{right:7px;scale:-1 1}
+  .battle-brand b,.battle-brand span{display:block;font-family:Georgia,"Songti SC",serif}.battle-brand b{font-size:27px;letter-spacing:.08em}.battle-brand span{margin-top:3px;color:#b99259;font-size:11px;letter-spacing:.36em}
+
+  .battle .opponents{left:18%;right:17%;top:10%;height:47%;gap:0;align-items:end}
+  .battle .opponent{height:100%;display:flex;align-items:end;justify-content:center;filter:drop-shadow(0 15px 12px #000b);transform-origin:50% 100%;animation:scene-character-idle 5.8s ease-in-out infinite alternate}
+  .battle .opponent:nth-child(2){animation-delay:-1.8s}.battle .opponent:nth-child(3){animation-delay:-3.7s}
+  .battle .opponent .avatar{display:block;position:absolute;inset:0;width:auto;height:auto;border:0;background:none;overflow:visible;filter:none}
+  .battle .opponent .portrait-motion{overflow:visible}
+  .battle .opponent .portrait-motion>img{width:100%;height:100%;object-fit:contain;object-position:center bottom;border-radius:0;filter:brightness(.88) saturate(.92)}
+  .battle .opponent:nth-child(1) .avatar{inset:4% -8% -3% -8%}.battle .opponent:nth-child(2) .avatar{inset:-2% -12% -4% -12%}.battle .opponent:nth-child(3) .avatar{inset:-4% -10% -3% -10%}
+  .battle .opponent>div{z-index:5;translate:0 0!important;width:148px;margin-bottom:-4px;padding:6px 9px;background:linear-gradient(90deg,#100704e8,#2c160be0,#100704e8);pointer-events:auto}
+  .battle .opponent.active{transform:translateY(-3px);filter:drop-shadow(0 0 10px var(--hero-color)) drop-shadow(0 15px 12px #000)}
+  .battle .opponent.out{opacity:.38;filter:grayscale(1) drop-shadow(0 12px 8px #000)}
+  .battle .opponent .expression-mark{right:7%;top:8%}
+
+  .battle .opponent.is-blinking .portrait-motion>img,.battle .opponent .avatar.is-blinking .portrait-motion>img{opacity:0}
+  .battle .avatar.is-blinking .character-sprite,#playerAvatar.is-blinking .character-sprite{display:block;position:absolute;inset:0;background-image:var(--sprite);background-size:300% 100%;background-position:50% center;background-repeat:no-repeat}
+  .battle .blink-lid{display:none}
+  .battle .character-tail .portrait-motion,.battle .character-snow .portrait-motion{transform-origin:50% 82%}
+  .battle .character-tail .ear-left,.battle .character-snow .ear-left{display:block;opacity:0;animation:scene-ear-move 6s ease-in-out infinite}
+
+  .battle .table-zone{left:31%;top:46%;width:39%;height:27%}
+  .battle .card-lanes{inset:31% 34%}.battle .played-stack{top:50%}.battle .result{bottom:0}
+  .battle .speech{top:-10px;width:360px}
+
+  .battle .player-strip{left:15px;bottom:14px;width:300px;height:140px;padding:18px 14px 12px 110px;background:linear-gradient(90deg,#0b0504ed,#241108d6)}
+  .battle .player-portrait>span{left:-18px;bottom:0;top:auto;translate:0;width:132px;height:190px;border:0;border-radius:0;filter:drop-shadow(0 9px 9px #000)}
+  .battle .player-portrait>span .portrait-motion>img{object-fit:contain;object-position:center bottom;border-radius:0}
+  .battle .player-portrait>span .expression-mark{right:17px;top:23px}
+  .battle .hand-area{left:32%;width:38%;height:205px}.battle .card-btn{height:150px;flex-basis:103px}
+
+  .battle .controls{right:23px;top:28%;width:205px}.battle .actions button,.battle .actions .primary:only-child{min-height:61px;background:linear-gradient(180deg,#713326,#4a1d14 50%,#1a0a06)}
+  .battle .items{right:18px;bottom:14px;width:345px}.battle .log-panel{left:18px;bottom:165px}.battle .motion-log{left:18px;bottom:146px}
+}
+@keyframes scene-character-idle{from{translate:0 1px;scale:1}to{translate:0 -3px;scale:1.008}}
+@keyframes scene-ear-move{0%,72%,79%,100%{transform:rotate(0)}75%{transform:rotate(-3deg)}77%{transform:rotate(2deg)}}
+
+@media(max-width:899px){
+  .battle-brand{display:none}
+  .battle .opponent .character-sprite{display:none!important}
+}
+
+/* 16:9 菜单资产完整入框；在 16:10 iPad/桌面上保留细窄电影黑边，不裁掉标题和按钮。 */
+#menuScreen .menu-art{inset:0;width:100%;height:100%;object-fit:contain}
+#menuScreen .menu-hitboxes,#menuScreen .menu-ambience{width:min(100vw,177.58svh);height:min(56.31vw,100svh)}

@@ -51,4 +51,4 @@ for (const name of menuButtons) {
     if (!html.includes(asset)) throw new Error(`主菜单按钮未接入：${asset}`);
   }
 }
-if (!html.includes('assets/battle/backgrounds/battle_scene_full_table.png')) throw new Error('战斗背景未使用沉浸式酒馆牌桌资源');
+if (!html.includes('assets/battle/backgrounds/candlelit_ritual_table.png')) throw new Error('战斗背景未使用沉浸式酒馆牌桌资源');

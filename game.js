@@ -13,21 +13,21 @@
     {id:'wild',name:'幻影牌',emoji:'🃏',mark:'幻',rarity:'传说',effect:'可以冒充本次宣称的任意牌。',wild:true}
   ];
   const PLAYERS = [
-    {id:'shadow',name:'夜影',emoji:'🐱',art:'assets/portraits/full/shadow.png',title:'黑猫酒保',rarity:'传奇',difficulty:4,personality:'灵活多变，擅长用冷静掩饰临场骗局。',tags:['冷静','机会主义','九命'],quote:'我不赌运气，我只赌你会犹豫。',skill:'猫的直觉',desc:'每局第一次受伤有 25% 概率闪避。',color:'#8f75d6',portrait:'assets/portraits/full/shadow.png'},
-    {id:'fang',name:'铁牙',emoji:'🐶',art:'assets/portraits/full/fang.png',title:'铁犬保镖',rarity:'精英',difficulty:3,personality:'强壮可靠却不擅长圆谎，适合正面反骗。',tags:['强壮','直率','压迫感'],quote:'我发誓……等等，发誓是不是骗人的开始？',skill:'反转之王',desc:'质疑成功时额外获得 5 金币。',color:'#a77745',portrait:'assets/portraits/full/fang.png'},
-    {id:'tail',name:'红尾',emoji:'🦊',art:'assets/portraits/full/tail.png',title:'狐狸赌徒',rarity:'传奇',difficulty:4,personality:'优雅而危险，享受在高风险中操纵怀疑。',tags:['华丽','挑衅','高风险'],quote:'真相只是还没化妆的谎言。',skill:'狐假虎威',desc:'得意表演被怀疑的概率更低。',color:'#d66c3e',portrait:'assets/portraits/full/tail.png'},
-    {id:'snow',name:'雪球',emoji:'🐰',art:'assets/portraits/full/snow.png',title:'危险贵族',rarity:'稀有',difficulty:2,personality:'用无辜和慌张隐藏真正意图，容错率较高。',tags:['无辜','慌张','危险'],quote:'我没有骗人，是鸡腿教我的。',skill:'纯洁眼神',desc:'无辜表演被怀疑的概率更低。',color:'#9fc9d6',portrait:'assets/portraits/full/snow.png'}
+    {id:'shadow',name:'夜影',emoji:'🐱',art:'assets/characters/portraits/player_blackcat.png',title:'黑猫酒保',rarity:'传奇',difficulty:4,personality:'灵活多变，擅长用冷静掩饰临场骗局。',tags:['冷静','机会主义','九命'],quote:'我不赌运气，我只赌你会犹豫。',skill:'猫的直觉',desc:'每局第一次受伤有 25% 概率闪避。',color:'#8f75d6',portrait:'assets/characters/portraits/player_blackcat.png'},
+    {id:'fang',name:'铁牙',emoji:'🐶',art:'assets/characters/portraits/ironfang_bulldog.png',title:'铁犬保镖',rarity:'精英',difficulty:3,personality:'强壮可靠却不擅长圆谎，适合正面反骗。',tags:['强壮','直率','压迫感'],quote:'我发誓……等等，发誓是不是骗人的开始？',skill:'反转之王',desc:'质疑成功时额外获得 5 金币。',color:'#a77745',portrait:'assets/characters/portraits/ironfang_bulldog.png'},
+    {id:'tail',name:'红尾',emoji:'🦊',art:'assets/characters/portraits/foxtail_fox.png',title:'狐狸赌徒',rarity:'传奇',difficulty:4,personality:'优雅而危险，享受在高风险中操纵怀疑。',tags:['华丽','挑衅','高风险'],quote:'真相只是还没化妆的谎言。',skill:'狐假虎威',desc:'得意表演被怀疑的概率更低。',color:'#d66c3e',portrait:'assets/characters/portraits/foxtail_fox.png'},
+    {id:'snow',name:'雪球',emoji:'🐰',art:'assets/characters/portraits/rabbit_noble.png',title:'危险贵族',rarity:'稀有',difficulty:2,personality:'用无辜和慌张隐藏真正意图，容错率较高。',tags:['无辜','慌张','危险'],quote:'我没有骗人，是鸡腿教我的。',skill:'纯洁眼神',desc:'无辜表演被怀疑的概率更低。',color:'#9fc9d6',portrait:'assets/characters/portraits/rabbit_noble.png'}
   ];
   const AI = [
-    {id:'fang',name:'铁牙',emoji:'🐶',art:'assets/portraits/full/fang.png',portrait:'assets/portraits/full/fang.png',color:'#a77745',title:'直觉派保镖',hp:2,lie:0.38,doubt:0.55,
+    {id:'fang',name:'铁牙',emoji:'🐶',art:'assets/characters/portraits/ironfang_bulldog.png',portrait:'assets/characters/portraits/ironfang_bulldog.png',color:'#a77745',title:'直觉派保镖',hp:2,lie:0.38,doubt:0.55,
       hello:'我闻得出谎话。除了我自己的。', tells:['爪子在桌下数拍子','认真闻了闻牌背','露出一颗很诚实的牙'],
       claims:['凭我的狗格担保。','骨头作证，我没撒谎！','看我真诚的鼻子。']},
     {id:'tail',name:'红尾',emoji:'🦊',title:'华丽诈术师',hp:2,lie:0.72,doubt:0.68,
-      art:'assets/portraits/full/tail.png',portrait:'assets/portraits/full/tail.png',color:'#d66c3e',
+      art:'assets/characters/portraits/foxtail_fox.png',portrait:'assets/characters/portraits/foxtail_fox.png',color:'#d66c3e',
       hello:'亲爱的，真相只是没化妆的谎言。',tells:['尾巴优雅地绕了两圈','笑容比牌面还闪亮','故意眨了左眼'],
       claims:['聪明人都该相信我。','这可是贵族级的真话。','不信？那正合我意。']},
     {id:'snow',name:'雪球',emoji:'🐰',title:'惊慌演技派',hp:2,lie:0.52,doubt:0.34,
-      art:'assets/portraits/full/snow.png',portrait:'assets/portraits/full/snow.png',color:'#9fc9d6',
+      art:'assets/characters/portraits/rabbit_noble.png',portrait:'assets/characters/portraits/rabbit_noble.png',color:'#9fc9d6',
       hello:'我、我只是来吃免费胡萝卜的！',tells:['长耳朵突然打了个结','紧张地啃空气','抱紧了会说话的鸡腿'],
       claims:['绝对是真的……吧？','兔子从来不骗猫！','鸡腿说它们都一样。']},
     {id:'hoot',name:'墨镜教授',emoji:'🦉',title:'概率学骗子',hp:2,lie:0.28,doubt:0.76,
@@ -36,7 +36,7 @@
     {id:'pocket',name:'口袋',emoji:'🦝',title:'垃圾桶怪盗',hp:2,lie:0.82,doubt:0.43,
       hello:'不是我偷的，我只是替它保管。',tells:['口袋里传来勺子碰撞声','两只黑眼圈同时眨眼','悄悄把证据塞进尾巴'],
       claims:['刚从桌底捡的，保真！','骗你是小浣熊。','这牌自己跑进我口袋的。']},
-    {id:'crow',name:'鸮策',emoji:'🦉',title:'黑月酒馆老板',hp:2,lie:0.64,doubt:0.72,art:'assets/portraits/owl-chief.png',portrait:'assets/portraits/owl-chief.png',color:'#d1aa61',
+    {id:'crow',name:'鸮策',emoji:'🦉',title:'黑月酒馆老板',hp:2,lie:0.64,doubt:0.72,art:'assets/characters/portraits/owl_gentleman.png',portrait:'assets/characters/portraits/owl_gentleman.png',color:'#d1aa61',
       hello:'我不需要看牌，只需要看你。',tells:['单片眼镜闪过冷光','慢慢敲了三下桌面','把问题原封不动丢回来'],
       claims:['你怀疑，正说明我赢了。','先猜猜我希望你怎么猜。','真相通常藏在第二层谎言里。']}
   ];
@@ -73,10 +73,12 @@
   const activeAI = () => state.rivals[state.active];
   const claimTrue = (cards,id) => cards.every(c=>c.wild||c.id===id);
   const EXPRESSIONS={idle:'待机',thinking:'思考',suspicious:'怀疑',smug:'挑衅',hurt:'受伤',win:'胜利'};
+  const SPRITES={shadow:'player_blackcat_sheet.png',fang:'ironfang_bulldog_sheet.png',tail:'foxtail_fox_sheet.png',snow:'rabbit_noble_sheet.png',crow:'owl_gentleman_sheet.png'};
   function portraitMarkup(character,mood='idle'){
     const source=character.art||character.portrait;const image=source?`<img src="${source}" alt="${character.name}头像" loading="eager">`:`<span class="portrait-fallback">${character.emoji}</span>`;
+    const sprite=SPRITES[character.id]?`<i class="character-sprite" style="--sprite:url('assets/characters/animation-sheets/${SPRITES[character.id]}')" aria-hidden="true"></i>`:'';
     const ears=['tail','snow'].includes(character.id)?'<i class="ear-twitch ear-left" aria-hidden="true"></i><i class="ear-twitch ear-right" aria-hidden="true"></i>':'';
-    return `<span class="portrait-motion">${image}<i class="blink-lid" aria-hidden="true"></i>${ears}</span><i class="expression-mark" title="${EXPRESSIONS[mood]||'冷静'}">${{idle:'◆',thinking:'…',suspicious:'?',smug:'!',hurt:'×',win:'★'}[mood]||'◆'}</i>`;
+    return `<span class="portrait-motion">${image}${sprite}<i class="blink-lid" aria-hidden="true"></i>${ears}</span><i class="expression-mark" title="${EXPRESSIONS[mood]||'冷静'}">${{idle:'◆',thinking:'…',suspicious:'?',smug:'!',hurt:'×',win:'★'}[mood]||'◆'}</i>`;
   }
 
   function scheduleBattleBlink(){
