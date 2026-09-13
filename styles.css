@@ -414,3 +414,22 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 @keyframes opponent-deal{48%{transform:translateY(5px) scale(1.012)}100%{transform:none}}
 @keyframes deal-sparks{from{opacity:0;transform:scale(.35) rotate(-20deg)}45%{opacity:1}to{opacity:0;transform:scale(1.8) rotate(18deg)}}
 @media(prefers-reduced-motion:reduce){.battle .flying-card,.battle .table.card-in-flight .center-card,.battle[data-action] .portrait-motion,.battle[data-action] #playerAvatar{animation:none!important}}
+
+/* 试玩反馈与移动端触控收尾。 */
+.battle .hud-delta{position:absolute;z-index:80;left:50%;top:10%;translate:-50% 0;pointer-events:none;white-space:nowrap;color:#ffe193;font:800 14px/1 Georgia,"Songti SC",serif;text-shadow:0 2px 2px #000,0 0 9px #d99741;animation:hud-delta-rise .88s ease-out both}
+.battle .hud-delta.bad{color:#ff9b8b;text-shadow:0 2px 2px #000,0 0 10px #bc332d}.battle .hud-delta.heal{color:#f3ad9d}.battle .hud-delta.doubt{color:#ffc26d}.battle .hud-delta.coin{left:100%;top:50%;color:#ffd46e}
+.battle .hp{position:relative}.battle .player-strip{overflow:visible}
+@keyframes hud-delta-rise{0%{opacity:0;transform:translateY(8px) scale(.85)}25%{opacity:1;transform:translateY(0) scale(1.08)}100%{opacity:0;transform:translateY(-30px) scale(1)}}
+
+@media(max-width:899px){
+  body:has(.battle:not(.hidden)){background:#080403}.game-shell:has(.battle:not(.hidden)){width:100%;padding:6px}
+  .battle{padding-bottom:calc(12px + env(safe-area-inset-bottom));overflow-x:hidden}
+  .battle .opponents{gap:4px}.battle .opponent{min-width:0;padding:5px 2px}.battle .opponent .avatar{width:64px;height:72px;margin:auto}.battle .opponent>div{min-width:0}.battle .opponent strong{font-size:12px}.battle .opponent small,.battle .opponent .affinity-label{display:none}
+  .battle .table-zone{padding-inline:2px}.battle .table{min-height:245px}.battle .speech{width:calc(100% - 18px);font-size:12px}.battle .tension-meter{width:calc(100% - 18px)}
+  .battle .hand-area{padding:9px 5px}.battle .hand{justify-content:flex-start;gap:3px;min-height:122px;padding:12px 5px 4px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}.battle .card-btn{flex:0 0 82px;height:119px;margin:0;rotate:0!important;translate:0!important;scroll-snap-align:center}.battle .card-btn.selected{translate:0 -9px!important}.battle .card-btn .name{font-size:9px}
+  .battle .controls{padding:9px}.battle .actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.battle .actions button,.battle .item-action{display:block!important;min-height:52px;padding:7px 4px;font-size:14px}.battle .actions button.hidden{opacity:.32;pointer-events:none}
+  .battle .item-buttons button{min-height:76px}.battle .item-icon{width:42px;height:37px}
+  .battle .flying-card{width:44px;height:63px}.battle .log-panel{margin-bottom:4px}
+}
+@media(max-width:430px){.battle .topbar{grid-template-columns:1fr auto auto}.battle .chapter-label strong{font-size:15px}.battle .currency{font-size:11px}.battle .performances{grid-template-columns:repeat(4,1fr)}.battle .performances button{padding:4px 1px;font-size:11px}.battle .player-strip{padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){.battle .hud-delta{animation:none!important}}
