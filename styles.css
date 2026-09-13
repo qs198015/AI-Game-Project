@@ -328,3 +328,26 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 @keyframes character-breath-depth{0%,100%{transform:translateY(0) scale(1)}48%{transform:translateY(-2px) scale(1.006)}55%{transform:translateY(-2px) scale(1.007)}75%{transform:translateY(0) scale(1)}}
 @keyframes speech-type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
 @media(prefers-reduced-motion:reduce){.battle .opponent .portrait-motion,.battle .speech.speech-typing span{animation:none!important}}
+
+/* 最终演出层：只增强现有场景反馈，不介入任何回合状态。 */
+@media(min-width:900px){
+  .battle .opponent .avatar:after{content:"";position:absolute;z-index:4;inset:4% 5% 0;pointer-events:none;background:radial-gradient(circle at 50% 28%,rgba(255,202,119,.13),transparent 36%),linear-gradient(100deg,rgba(255,161,63,.07),transparent 28% 72%,rgba(111,53,25,.14));mix-blend-mode:soft-light;mask-image:linear-gradient(#000 0 88%,transparent)}
+  .battle .character-tail .portrait-motion>img{transform-origin:48% 32%;animation:fox-ear-life 7.8s ease-in-out infinite}
+  .battle .character-snow .portrait-motion>img{transform-origin:52% 38%;animation:rabbit-ear-life 8.6s -3.1s ease-in-out infinite}
+  .battle .battle-candle-light{left:50%;top:54%;width:34vw;height:30vh;background:radial-gradient(ellipse,rgba(255,198,103,.12),rgba(255,126,36,.045) 38%,transparent 70%);filter:blur(12px);mix-blend-mode:screen;animation:candle-table-breathe 2.4s ease-in-out infinite alternate}
+  .battle .battle-firefly{opacity:.62;scale:.68;filter:sepia(.15) drop-shadow(0 0 5px #f2b64d)}
+
+  .battle .speech:after{left:50%;translate:-50% 0;filter:drop-shadow(0 2px 1px rgba(0,0,0,.32))}
+  .battle .speech[data-speaker="0"]:after{left:70%}.battle .speech[data-speaker="2"]:after{left:30%}
+  .battle .speech.speech-typing:before{content:"";display:block;position:absolute;left:auto;right:10px;top:auto;bottom:8px;translate:none;width:3px;height:13px;border:0;border-radius:0;background:#7c4524;box-shadow:none;animation:type-caret .42s steps(1) infinite}
+
+  .battle .card-btn{transition:translate .2s ease,filter .2s ease,box-shadow .2s ease}
+  .battle .card-btn:hover:not(:disabled){translate:0 -9px;box-shadow:0 4px 1px #4b2b15,0 15px 18px rgba(0,0,0,.76),0 0 11px rgba(239,184,85,.42)}
+  .battle .card-btn.selected{outline:2px solid #efc76e;outline-offset:-3px;filter:brightness(1.1) saturate(1.06) drop-shadow(0 0 5px rgba(239,190,95,.62))}
+  .battle .actions button:hover:not(:disabled),.battle .actions button:focus-visible{color:#fff0c5;filter:brightness(1.22) saturate(1.12);box-shadow:inset 0 1px rgba(255,234,187,.28),inset 0 0 0 2px #180904,inset 0 0 0 4px #d39a4e,0 0 17px rgba(229,157,70,.56),0 8px 16px #000}
+}
+@keyframes fox-ear-life{0%,68%,76%,100%{transform:rotate(0)}71%{transform:rotate(-.45deg) translateY(-1px)}73%{transform:rotate(.3deg)}}
+@keyframes rabbit-ear-life{0%,62%,71%,100%{transform:rotate(0)}65%{transform:rotate(.38deg) translateY(-1px)}68%{transform:rotate(-.28deg)}}
+@keyframes candle-table-breathe{from{opacity:.52;transform:scale(.94)}to{opacity:.9;transform:scale(1.06)}}
+@keyframes type-caret{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.battle .character-tail .portrait-motion>img,.battle .character-snow .portrait-motion>img,.battle .battle-candle-light,.battle .speech.speech-typing:before{animation:none!important}}
