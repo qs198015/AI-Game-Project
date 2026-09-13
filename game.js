@@ -136,7 +136,13 @@
       [110,164.81,220].forEach((frequency,index)=>{const oscillator=audio.createOscillator(),level=audio.createGain();oscillator.type=index===0?'sine':'triangle';oscillator.frequency.value=frequency;level.gain.value=index===0?.34:.12;oscillator.connect(level);level.connect(musicGain);oscillator.start();});musicStarted=true;
     }catch(_){/* 浏览器禁用 Web Audio 时保留无音乐玩法 */}
   }
-  function say(name,text){els.enemySpeech.innerHTML='';const b=document.createElement('b'),s=document.createElement('span');b.textContent=name;s.textContent=text;els.enemySpeech.append(b,s);}
+  function say(name,text){
+    els.enemySpeech.innerHTML='';
+    const speakerIndex=state?.rivals?.findIndex(rival=>rival.name===name)??-1;
+    els.enemySpeech.dataset.speaker=String(Math.max(0,speakerIndex));
+    const b=document.createElement('b'),s=document.createElement('span');
+    b.textContent=name;s.textContent=text;els.enemySpeech.append(b,s);
+  }
   function log(text){const p=document.createElement('p');p.textContent=text;els.log.prepend(p);}
   function toast(text){clearTimeout(toastTimer);els.toast.textContent=text;els.toast.classList.add('show');toastTimer=setTimeout(()=>els.toast.classList.remove('show'),1600);}
   function animate(outcome){els.table.classList.remove('shake','win');void els.table.offsetWidth;els.table.classList.add(outcome==='good'?'win':'shake');tone(outcome);}
