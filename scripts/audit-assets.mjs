@@ -51,4 +51,4 @@ for (const name of menuButtons) {
     if (!html.includes(asset)) throw new Error(`主菜单按钮未接入：${asset}`);
   }
 }
-if (!html.includes('assets/battle/backgrounds/battle_screen_reference.png')) throw new Error('战斗背景未使用新增资源路径');
+if (!html.includes('assets/battle/backgrounds/wolf_crest_tavern_table.png')) throw new Error('战斗背景未使用无角色酒馆牌桌资源');
