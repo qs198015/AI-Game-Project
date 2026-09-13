@@ -323,7 +323,7 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
   .battle .actions button,.battle .actions .primary:only-child{background:linear-gradient(180deg,rgba(108,49,35,.86),rgba(51,18,11,.88));box-shadow:inset 0 1px rgba(255,220,157,.16),inset 0 0 0 2px #180904,inset 0 0 0 4px rgba(171,111,49,.78),0 6px 12px rgba(0,0,0,.7)}
 
   .battle .speech span{width:max-content;max-width:100%}
-  .battle .speech.speech-typing span{overflow:hidden;white-space:nowrap;animation:speech-type .7s steps(var(--speech-chars),end) both}
+  .battle .speech.speech-typing span{overflow:hidden;white-space:nowrap;animation:speech-type var(--speech-duration,.7s) steps(var(--speech-chars),end) both}
 }
 @keyframes character-breath-depth{0%,100%{transform:translateY(0) scale(1)}48%{transform:translateY(-2px) scale(1.006)}55%{transform:translateY(-2px) scale(1.007)}75%{transform:translateY(0) scale(1)}}
 @keyframes speech-type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
@@ -351,3 +351,23 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 @keyframes candle-table-breathe{from{opacity:.52;transform:scale(.94)}to{opacity:.9;transform:scale(1.06)}}
 @keyframes type-caret{50%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.battle .character-tail .portrait-motion>img,.battle .character-snow .portrait-motion>img,.battle .battle-candle-light,.battle .speech.speech-typing:before{animation:none!important}}
+
+/* 动作反馈：说话、怀疑与相信只写入临时表现层，不改变判定时序。 */
+@media(min-width:900px){
+  .battle[data-speaker="0"] .opponent:nth-child(1) .portrait-motion,.battle[data-speaker="1"] .opponent:nth-child(2) .portrait-motion,.battle[data-speaker="2"] .opponent:nth-child(3) .portrait-motion{animation:speaker-lean 1.15s ease-in-out infinite alternate}
+  .battle[data-decision="challenge"] .opponent.active .portrait-motion{animation:decision-startle .34s ease-out both}
+  .battle[data-decision="trust"] .opponent.active .portrait-motion{animation:decision-trust .58s ease-out both}
+  .battle[data-decision="challenge"] #challengeBtn{animation:challenge-button-shake .28s ease-out}
+  .battle .speech{animation:speech-fade-in .3s ease-out both}
+  .decision-fx{position:absolute;z-index:20;inset:0;display:grid;place-items:center;pointer-events:none}
+  .decision-fx.trust i{position:absolute;color:#efb069;font:25px Georgia;text-shadow:0 0 9px #e88545;animation:heart-rise .6s ease-out both;translate:var(--x) 30px;animation-delay:calc(var(--i)*25ms)}
+  .decision-fx.challenge b{display:grid;place-items:center;width:54px;height:54px;border:2px solid #e8b665;border-radius:50%;background:#240d08d9;color:#ffe1a2;font:900 34px Georgia;box-shadow:0 0 24px #d35b39;animation:challenge-stamp .48s ease-out both}
+}
+@keyframes speaker-lean{from{transform:translateY(0) rotate(0)}to{transform:translateY(-3px) rotate(.35deg)}}
+@keyframes decision-startle{30%{transform:translateX(-5px) rotate(-1deg)}65%{transform:translateX(4px) rotate(.8deg)}}
+@keyframes decision-trust{45%{transform:translateY(2px) scale(.985);filter:brightness(1.12)}75%{transform:translateY(-1px) scale(1.006)}}
+@keyframes challenge-button-shake{25%{transform:translateX(-4px)}55%{transform:translateX(4px)}80%{transform:translateX(-2px)}}
+@keyframes speech-fade-in{from{opacity:0;transform:translateY(7px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes heart-rise{from{opacity:0;transform:scale(.6)}40%{opacity:1}to{opacity:0;transform:translateY(-85px) scale(1.25) rotate(12deg)}}
+@keyframes challenge-stamp{from{opacity:0;transform:scale(1.7) rotate(-8deg)}45%{opacity:1;transform:scale(.92) rotate(3deg)}to{opacity:0;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.battle[data-speaker] .opponent .portrait-motion,.decision-fx *{animation:none!important}}
