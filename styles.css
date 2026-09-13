@@ -433,3 +433,26 @@ button,.screen,.topbar,.opponent,.speech,.player-strip,.hand-area,.controls,.ite
 }
 @media(max-width:430px){.battle .topbar{grid-template-columns:1fr auto auto}.battle .chapter-label strong{font-size:15px}.battle .currency{font-size:11px}.battle .performances{grid-template-columns:repeat(4,1fr)}.battle .performances button{padding:4px 1px;font-size:11px}.battle .player-strip{padding:7px 10px}}
 @media(prefers-reduced-motion:reduce){.battle .hud-delta{animation:none!important}}
+
+/* 试玩版表情精修：直接以三帧角色表情表承载待机、眨眼与操作反馈。 */
+.battle .opponent .character-sprite,.battle #playerAvatar .character-sprite{display:block;position:absolute;z-index:1;inset:0;background-image:var(--sprite);background-repeat:no-repeat;background-position:0 center;background-size:300% 100%;filter:brightness(.8) sepia(.08) saturate(.9) contrast(1.08) drop-shadow(0 10px 8px rgba(0,0,0,.72));mask-image:linear-gradient(#000 0 89%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 89%,transparent 100%);transition:filter .28s ease}
+.battle .opponent .portrait-motion>img,.battle #playerAvatar .portrait-motion>img{opacity:0}
+.battle .opponent.active .character-sprite{filter:brightness(.9) sepia(.05) saturate(1) contrast(1.07) drop-shadow(0 9px 7px rgba(0,0,0,.68)) drop-shadow(0 0 5px color-mix(in srgb,var(--hero-color) 34%,transparent))}
+.battle[data-speaker="0"] .opponent:nth-child(1) .character-sprite,.battle[data-speaker="1"] .opponent:nth-child(2) .character-sprite,.battle[data-speaker="2"] .opponent:nth-child(3) .character-sprite,.battle .opponent.mood-suspicious .character-sprite,.battle .opponent.mood-smug .character-sprite,.battle .opponent.mood-hurt .character-sprite,.battle .opponent.mood-win .character-sprite,.battle[data-action="player-play"] #playerAvatar .character-sprite,.battle #playerAvatar.mood-smug .character-sprite,.battle #playerAvatar.mood-hurt .character-sprite,.battle #playerAvatar.mood-win .character-sprite{background-position:100% center}
+.battle .avatar.is-blinking .character-sprite,.battle #playerAvatar.is-blinking .character-sprite{display:block!important;background-position:50% center!important}
+.battle .character-tail .character-sprite{transform-origin:49% 30%;animation:expression-fox-ear 7.6s ease-in-out infinite}.battle .character-snow .character-sprite{transform-origin:51% 31%;animation:expression-rabbit-ear 8.4s -2.8s ease-in-out infinite}
+@keyframes expression-fox-ear{0%,72%,78%,100%{transform:rotate(0)}74%{transform:rotate(-.35deg)}76%{transform:rotate(.25deg)}}
+@keyframes expression-rabbit-ear{0%,66%,73%,100%{transform:rotate(0)}68%{transform:rotate(.3deg)}71%{transform:rotate(-.25deg)}}
+
+/* 道具仍在右侧操作动线上，但为玩家桌前的完整手牌让出底部空间。 */
+@media(min-width:900px){
+  .battle .hand-area{bottom:0}
+  .battle .items{right:18px;bottom:136px;width:345px;height:116px;padding:7px 9px}
+  .battle .items .section-title{margin-bottom:3px}.battle .item-buttons{gap:5px}.battle .item-buttons button{min-height:68px;padding:3px}.battle .item-icon{width:40px;height:36px}
+}
+@media(max-width:899px){
+  .battle .opponent .character-sprite{display:block!important;mask-image:linear-gradient(#000 0 94%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 94%,transparent 100%)}
+  .battle .items{position:relative;right:auto;bottom:auto;margin-top:5px;padding:8px}
+  .battle .items .section-title{margin-bottom:4px}.battle .item-buttons{gap:5px}.battle .item-buttons button{min-height:68px;padding:4px}.battle .item-icon{width:38px;height:34px}
+}
+@media(prefers-reduced-motion:reduce){.battle .character-tail .character-sprite,.battle .character-snow .character-sprite{animation:none!important}}
