@@ -633,3 +633,24 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .item-icon{width:52px;height:47px}.battle .item-buttons button span{font-size:12px;color:#f2d9aa}.battle .item-buttons button small{font-size:11px;color:#ffe08a}
   .battle .chapter-label strong{font-size:28px}.battle .turn-callout{font-size:17px}
 }
+
+/* 七类事件反应：只作用于展示层，不改变判定和回合时序。 */
+.battle .reaction-observe .character-sprite{animation:reaction-observe 1.8s ease-in-out infinite alternate}
+.battle .reaction-suspect .character-sprite{filter:brightness(.92) contrast(1.15) saturate(.9) drop-shadow(0 0 9px #cf7b45);animation:reaction-suspect .7s ease-out}
+.battle .reaction-fooled .character-sprite{background-position:0 center!important;animation:reaction-fooled .72s cubic-bezier(.2,.75,.25,1) both}
+.battle .reaction-discover .character-sprite{filter:brightness(1.08) contrast(1.14) drop-shadow(0 0 13px #e64f32);animation:reaction-discover .62s ease-out both}
+.battle .reaction-win .character-sprite{background-position:100% center!important;animation:reaction-taunt .9s cubic-bezier(.2,.8,.2,1) both}
+.battle .reaction-collapse .character-sprite{background-position:0 center!important;animation:reaction-collapse 1.12s cubic-bezier(.2,.7,.25,1) both}
+.battle .reaction-penalty .character-sprite{animation:reaction-penalty .9s ease-in-out both}
+.battle .reaction-fooled .expression-mark,.battle .reaction-collapse .expression-mark{animation:comic-mark 1s steps(2,end) both}
+.battle.camera-success .center-card{filter:brightness(1.22) drop-shadow(0 0 16px #ffd570)}
+.battle.camera-success:before{color:#f7cd72;text-shadow:0 0 16px #ffc44f}.battle.camera-caught{animation:screen-warning-shake .38s ease-out}.battle.camera-caught:after{display:block;content:"骗局暴露！";position:absolute;z-index:90;inset:0;pointer-events:none;padding-top:32vh;text-align:center;background:radial-gradient(circle,transparent 20%,rgba(126,10,8,.2) 75%);color:#ffb09c;font:900 clamp(28px,4vw,54px) Georgia,"Songti SC",serif;letter-spacing:.16em;text-shadow:0 3px #3d0503,0 0 22px #e02e22;animation:red-warning .72s ease-out both}
+@keyframes reaction-observe{to{transform:translateX(2px) rotate(.25deg)}}
+@keyframes reaction-suspect{35%{transform:translateX(-5px) rotate(-1deg) scale(1.02)}70%{transform:translateX(2px) rotate(.5deg)}}
+@keyframes reaction-fooled{0%{transform:none}38%{transform:translateY(-10px) scale(1.04)}70%{transform:translateY(5px) scale(.97)}100%{transform:none}}
+@keyframes reaction-discover{0%{transform:none}35%{transform:translate(7px,-5px) rotate(1.5deg) scale(1.035)}100%{transform:none}}
+@keyframes reaction-taunt{0%{transform:none}38%{transform:translateY(-11px) scale(1.06) rotate(-1deg)}68%{transform:translateY(-4px) rotate(1deg)}100%{transform:none}}
+@keyframes reaction-collapse{0%{transform:none}28%{transform:translate(-7px,-5px) rotate(-2deg)}52%{transform:translate(6px,3px) rotate(2deg)}75%,100%{transform:translateY(9px) rotate(-2deg) scale(.96)}}
+@keyframes reaction-penalty{0%{transform:none}28%{transform:rotate(-7deg) translateY(-4px)}55%{transform:rotate(7deg)}78%{transform:rotate(-3deg) translateY(5px)}100%{transform:none}}
+@keyframes comic-mark{0%,100%{transform:scale(1) rotate(0)}45%{transform:scale(1.45) rotate(-12deg)}}@keyframes screen-warning-shake{25%{translate:-4px 0}55%{translate:4px 0}80%{translate:-2px 0}}@keyframes red-warning{0%{opacity:0;transform:scale(1.3)}28%{opacity:1;transform:scale(.98)}100%{opacity:0;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.battle [class*="reaction-"] .character-sprite,.battle.camera-caught,.battle.camera-caught:after{animation:none!important}}
