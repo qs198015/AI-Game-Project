@@ -728,3 +728,24 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .opponent .character-sprite{mask-image:linear-gradient(#000 0 92%,rgba(0,0,0,.9) 96%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 92%,rgba(0,0,0,.9) 96%,transparent 100%)}
 }
 @media(min-width:900px){.battle .opponent:nth-child(1) .portrait-motion{translate:0 9%}}
+
+/* 独立座位系统：每个 slot 以桌沿为底部锚点，新角色只需增加 seat 坐标。 */
+@media(min-width:900px){
+  .battle .opponents{display:block;inset:0;width:auto;height:auto;pointer-events:none}
+  .battle .seat-slot{--seat-x:50%;--seat-bottom:47%;--seat-width:250px;--seat-height:470px;position:absolute;left:var(--seat-x);bottom:var(--seat-bottom);width:var(--seat-width);height:var(--seat-height);translate:-50% 0;transform:none!important;transform-origin:bottom center;animation:none;overflow:visible;pointer-events:none}
+  .battle .seat-slot-1{--seat-x:25%;--seat-width:270px;--seat-height:485px}.battle .seat-slot-2{--seat-x:49%;--seat-width:270px;--seat-height:500px}.battle .seat-slot-3{--seat-x:70%;--seat-width:265px;--seat-height:505px}
+  .battle .seat-slot .seat-actor{position:absolute;inset:0!important;width:100%;height:100%;overflow:visible;transform-origin:bottom center}
+  .battle .seat-slot .portrait-motion{position:absolute;inset:0;translate:0 12%;transform-origin:bottom center}
+  .battle .seat-slot-1 .portrait-motion{translate:0 15%}.battle .seat-slot-2 .portrait-motion{translate:0 12%}.battle .seat-slot-3 .portrait-motion{translate:0 13%}
+  .battle .seat-slot .character-sprite{inset:0 auto 0 50%;height:100%;width:auto;aspect-ratio:15/32;translate:-50% 0;transform-origin:bottom center;mask-image:linear-gradient(#000 0 90%,rgba(0,0,0,.88) 95%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 90%,rgba(0,0,0,.88) 95%,transparent 100%)}
+  .battle .seat-contact{display:block;position:absolute;z-index:0;left:9%;right:9%;bottom:-4%;height:12%;border-radius:50%;background:radial-gradient(ellipse,#050100e8 0,rgba(22,7,2,.7) 48%,transparent 74%);filter:blur(8px);transform:perspective(140px) rotateX(68deg)}
+  .battle .seat-slot>div{position:absolute;z-index:6;top:15%;width:118px;margin:0!important;translate:0!important}.battle .seat-slot-1>div{left:-2%}.battle .seat-slot-2>div{left:-18%}.battle .seat-slot-3>div{right:-20%}
+}
+/* 选框使用同一张外置 overlay，仅比牌外轮廓多 5%，四角与卡牌对应。 */
+.battle .card-btn .gold-frame{inset:50% auto auto 50%;width:105%;height:105%;translate:-50% -50%;background-position:66.667% 100%;pointer-events:none}
+@media(min-width:900px){.battle .opponents>.seat-slot{top:auto!important;bottom:47%!important}}
+@media(min-width:900px){.battle .opponents>.seat-slot{position:fixed!important;top:auto!important;bottom:47vh!important}}
+@media(min-width:900px){
+  .battle .seat-slot>div{top:28%}
+  .battle .seat-slot-1>div{top:26%}.battle .seat-slot-3>div{top:29%}
+}
