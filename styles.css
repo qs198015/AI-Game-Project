@@ -562,3 +562,48 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .player-strip,.battle .controls .claim-row,.battle .items,.battle .hand-area,.battle .opponent>div{border-color:var(--hud-border)}
   .battle .controls{right:var(--hud-edge)}.battle .items{right:var(--hud-edge)}
 }
+
+/* 沉浸式酒馆牌桌：以完整酒馆场景统领人物、桌面与 HUD，而非浮层舞台。 */
+.tavern-host{display:none}
+@media(min-width:900px){
+  .battle>.battle-scene img{object-fit:cover;object-position:center center;filter:brightness(.72) saturate(.88) contrast(1.08)}
+  .battle>.battle-scene:after{background:linear-gradient(90deg,rgba(6,2,1,.2),transparent 18% 82%,rgba(6,2,1,.22)),linear-gradient(180deg,rgba(5,2,1,.08),transparent 58%,rgba(4,1,1,.22))}
+  .battle:after{display:none}
+  .battle-brand{left:20px;top:18px;width:250px;background:linear-gradient(145deg,rgba(42,20,8,.76),rgba(10,4,2,.78));backdrop-filter:blur(3px)}
+  .battle .topbar{top:8px;width:430px;height:96px;background:linear-gradient(180deg,rgba(45,21,8,.84),rgba(14,6,3,.82));box-shadow:inset 0 0 0 1px #bd8440,inset 0 0 0 4px #1a0904,0 6px 15px #0008}
+
+  .battle .opponents{z-index:4;left:20%;right:24%;top:16%;height:39%;gap:2%;align-items:end}
+  .battle .opponent{height:100%;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;filter:drop-shadow(0 12px 10px #0009)}
+  .battle .opponent .avatar,.battle .opponent .portrait-motion{background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .battle .opponent:nth-child(1) .avatar{inset:3% 3% 0 -3%}.battle .opponent:nth-child(2) .avatar{inset:-2% -2% 0 2%}.battle .opponent:nth-child(3) .avatar{inset:-5% -4% 0 4%}
+  .battle .opponent .character-sprite{filter:brightness(.9) saturate(.94) contrast(1.06) drop-shadow(0 7px 5px #0008);mask-image:linear-gradient(#000 0 94%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 94%,transparent 100%)}
+  .battle .opponent.active .character-sprite{filter:brightness(1) saturate(1) contrast(1.05) drop-shadow(0 7px 6px #0009) drop-shadow(0 0 5px color-mix(in srgb,var(--hero-color) 34%,transparent))}
+  .battle .opponent>div{width:116px;padding:3px 5px;border:0!important;background-color:transparent!important;background-image:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none;text-shadow:0 2px 3px #000,0 0 7px #000}
+  .battle .opponent:nth-child(1)>div{left:-8%;top:9%}.battle .opponent:nth-child(2)>div{left:-28%;right:auto;top:5%}.battle .opponent:nth-child(3)>div{right:-52%;top:13%}
+  .battle .opponent>div .affinity{height:3px;background:#130704aa}.battle .opponent.active>div{outline:0;box-shadow:none}
+
+  .tavern-host{display:block;position:absolute;z-index:3;right:1.5%;top:15%;width:13%;height:31%;pointer-events:none;filter:brightness(.78) saturate(.8) drop-shadow(0 10px 8px #000b)}
+  .tavern-host img{width:100%;height:100%;object-fit:contain;object-position:center bottom;animation:character-breath-depth 5.9s -2.1s ease-in-out infinite}
+  .battle:has(.opponent.character-crow) .tavern-host{display:none}
+
+  .battle .table-zone{z-index:7;left:36%;top:49%;width:29%;height:24%}
+  .battle .table-zone:before{inset:8% -46% -10%;border:0;border-bottom:2px solid rgba(225,164,79,.55);box-shadow:none}
+  .battle .speech{top:-133%;width:205px;min-height:54px}.battle .speech[data-speaker="0"]{left:-59%}.battle .speech[data-speaker="1"]{left:50%}.battle .speech[data-speaker="2"]{left:159%}
+  .battle .speech[data-speaker="0"]:after{left:78%}.battle .speech[data-speaker="1"]:after{left:50%}.battle .speech[data-speaker="2"]:after{left:20%}
+  .battle .tension-meter{top:0;background:rgba(13,5,2,.68);border-color:#926230}
+
+  .battle .player-strip{z-index:9;left:18px;bottom:16px;width:300px;height:142px;padding:16px 14px 12px 108px;background:linear-gradient(90deg,rgba(8,3,2,.9),rgba(30,12,5,.72),rgba(8,3,2,.35))}
+  .battle .player-portrait>span{position:fixed;z-index:-1;left:-42px;bottom:-52px;width:390px;height:535px;border:0;background:transparent!important;box-shadow:none!important;pointer-events:none;filter:brightness(.82) saturate(.9) drop-shadow(9px 9px 10px #000c)}
+  .battle #playerAvatar .character-sprite{mask-image:linear-gradient(#000 0 94%,transparent);-webkit-mask-image:linear-gradient(#000 0 94%,transparent)}
+  .battle .player-portrait>div{position:relative;z-index:3}.battle .player-strip>.hp{position:relative;z-index:3}
+
+  .battle .hand-area{z-index:10;left:33%;bottom:5px;width:36%;height:170px;padding:7px 8px 6px;border:0;background:radial-gradient(ellipse at 50% 100%,rgba(12,4,2,.76),transparent 72%);overflow:visible}
+  .battle .hand-area .section-title{height:24px;margin-bottom:0}.battle .hand{height:138px;padding:2px 6px 0;overflow:visible}
+  .battle .card-btn{flex-basis:94px;height:132px;margin-inline:-7px}.battle .card-btn:hover:not(:disabled),.battle .card-btn.selected{translate:0 -10px!important}
+
+  .battle .controls{z-index:12;right:18px;top:40%;width:205px}.battle .controls .claim-row{background:rgba(15,6,3,.78);backdrop-filter:blur(3px)}
+  .battle .actions button,.battle .actions .primary:only-child{min-height:58px}
+  .battle .items{z-index:12;right:18px;bottom:16px;width:330px;height:112px;background:rgba(10,4,2,.8)}
+  .battle .log-panel{display:none}.battle .motion-log{left:20px;bottom:160px;width:286px;background:rgba(8,3,2,.55)}
+}
+@media(max-width:899px){.tavern-host{display:none}.battle>.battle-scene img{object-fit:cover;object-position:center top}}
