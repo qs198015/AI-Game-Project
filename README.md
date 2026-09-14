@@ -114,6 +114,7 @@ npm run verify    # 发布文件、引用和核心体积预算
 
 - 主菜单使用 `assets/main-menu/main-menu-v3.png` 与六组普通/高亮按钮资源；16:9 场景在 16:10 屏幕中完整显示，不再裁掉标题或边缘入口。
 - 战斗页使用带完整酒馆景深与圆桌的 `assets/battle/backgrounds/wolf_crest_tavern_table.png`，并将玩家、三名对手与右侧鸦策主持人以透明角色层融入真实座位，不再使用黑底舞台或大幅角色卡片。
+- 桌面战斗页使用 `assets/battle/ui/buttons/` 的正式普通态／高亮态图片按钮；桌边角色、玩家手牌与独立道具格均按 1440×900 商业桌游界面比例放大。
 - `assets/characters/animation-sheets/` 驱动随机眨眼帧，角色层另有轻微 idle 呼吸与狐狸/兔子耳朵动作；`assets/effects/fireflies_and_gold_particles_sheet.png` 用作酒馆萤火虫精灵。
 - 回合、宣称、演技、出牌、怀疑、相信与三个道具仍由原来的 DOM 和 JavaScript 状态机控制；中央牌位、底部扇形手牌、左下玩家信息和右侧四按钮只是重新布局，没有修改规则。
 
