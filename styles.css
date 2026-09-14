@@ -500,3 +500,44 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 @keyframes penalty-light{0%,100%{rotate:-12deg;opacity:.5}50%{rotate:12deg;opacity:1}}@keyframes roulette-spin{to{transform:rotate(1turn) scale(1.06)}}@keyframes roulette-stop{0%{transform:rotate(0) scale(1.1)}75%{transform:rotate(690deg) scale(1.2)}100%{transform:rotate(720deg)}}@keyframes goblet-toast{to{transform:translateY(-8px) rotate(8deg);filter:drop-shadow(0 0 26px #ad65ff)}}@keyframes magic-rise{from{opacity:0;transform:translateY(30px) scale(.7)}60%{opacity:1}to{opacity:0;transform:translateY(-45px) scale(1.25)}}@keyframes accept-wobble{from{transform:rotate(-5deg) translateY(2px)}to{transform:rotate(5deg) translateY(-4px)}}
 @media(max-width:620px){.penalty-stage{height:140px}.penalty-actor{width:72px;height:100px;right:7%}.penalty-prop{font-size:58px}.penalty-choices{max-height:35vh;overflow:auto}}
 @media(prefers-reduced-motion:reduce){.battle [class*="mood-"] .portrait-motion,.battle .character-tail .portrait-motion:after,.penalty-stage *,.penalty-stage:after{animation:none!important}}
+
+/* Battle 构图校正：比例、对白锚点与 HUD 栅格优先于铺满画面。 */
+.battle .opponent .portrait-motion>img,.battle #playerAvatar .portrait-motion>img{width:100%;height:100%;object-fit:contain!important;object-position:center bottom!important}
+.battle .opponent .character-sprite,.battle #playerAvatar .character-sprite{inset:0 auto 0 50%;width:auto;height:100%;aspect-ratio:8/15;translate:-50% 0;background-size:300% 100%;background-repeat:no-repeat}
+@media(min-width:900px){
+  .battle{--hud-edge:18px;--hud-border:#a8773c;--hud-inner:#120704}
+  .battle .opponents{left:18%;right:18%;top:13%;height:39%;gap:3.5%}
+  .battle .opponent:nth-child(1) .avatar,.battle .opponent:nth-child(2) .avatar,.battle .opponent:nth-child(3) .avatar{inset:0;width:100%;height:100%}
+  .battle .opponent .portrait-motion{inset:0;overflow:visible}.battle .opponent .portrait-motion>img{max-width:100%;max-height:100%}
+  .battle .opponent>div{width:144px;margin-bottom:0;padding:7px 9px;border:1px solid var(--hud-border);border-radius:5px}
+  .battle .opponent:nth-child(1)>div{translate:-20% 10%}.battle .opponent:nth-child(2)>div{translate:0 0}.battle .opponent:nth-child(3)>div{translate:20% 10%}
+
+  .battle .table-zone{left:30%;top:45%;width:40%;height:27%}
+  .battle .speech{top:-112%;width:205px;min-height:58px;padding:9px 11px;translate:-50% 0;font-size:12px}
+  .battle .speech[data-speaker="0"]{left:-27%}.battle .speech[data-speaker="1"]{left:50%}.battle .speech[data-speaker="2"]{left:127%}
+  .battle .speech[data-speaker="0"]:after{left:76%}.battle .speech[data-speaker="1"]:after{left:50%}.battle .speech[data-speaker="2"]:after{left:24%}
+  .battle .speech span{white-space:normal!important;line-height:1.35}
+
+  .battle .player-strip{left:var(--hud-edge);bottom:var(--hud-edge);width:300px;height:136px;padding:12px 14px 12px 104px;border:1px solid var(--hud-border);border-radius:5px}
+  .battle .player-portrait>span{left:-8px;bottom:0;top:auto;width:116px;height:174px;translate:0;border:0;border-radius:0}
+  .battle .hand-area{left:30%;bottom:16px;width:40%;height:196px;padding:12px 10px 8px;overflow:visible}
+  .battle .hand-area .section-title{height:26px;margin:0 auto 4px}.battle .hand-area .section-title small{top:14px;right:10px}
+  .battle .hand{height:150px;align-items:flex-start;padding-top:2px;overflow:visible}
+  .battle .card-btn{flex-basis:96px;height:136px;margin-inline:-7px;translate:0!important;transform-origin:50% 100%}
+  .battle .card-btn:nth-child(1){rotate:-7deg}.battle .card-btn:nth-child(2){rotate:-3deg}.battle .card-btn:nth-child(4){rotate:3deg}.battle .card-btn:nth-child(5){rotate:7deg}.battle .card-btn.selected{translate:0 -10px!important}
+
+  .battle .controls{right:var(--hud-edge);top:27%;width:214px;gap:7px}.battle .claim-row{padding:8px 9px;border:1px solid var(--hud-border);border-radius:5px}
+  .battle .actions{gap:7px}.battle .actions button,.battle .actions .primary:only-child{min-height:56px;margin:0;border-color:var(--hud-border)}
+  .battle .items{right:var(--hud-edge);bottom:var(--hud-edge);width:350px;height:116px;padding:8px 10px;border:1px solid var(--hud-border);border-radius:5px}
+  .battle .items .section-title{height:22px;margin:0 0 4px}.battle .item-buttons{gap:6px}.battle .item-buttons button{min-height:70px;margin:0;padding:3px 4px}
+  .battle .log-panel{left:var(--hud-edge)}.battle .motion-log{left:var(--hud-edge)}
+}
+@media(max-width:899px){
+  .battle .opponent .avatar{width:66px;height:84px}.battle .opponent .portrait-motion{overflow:visible}.battle .opponent>div{padding-inline:4px}
+  .battle .speech{margin:3px auto 7px;padding:8px 12px;min-height:44px;border-radius:8px}.battle .speech span{white-space:normal!important}
+  .battle .table{min-height:215px}
+  .battle .hand-area{margin-top:6px;padding:8px 6px 10px;overflow:hidden}.battle .hand-area .section-title{margin-bottom:2px;padding-inline:5px}
+  .battle .hand{min-height:142px;height:142px;padding:10px 6px 8px;align-items:flex-start;overflow-x:auto;overflow-y:hidden}
+  .battle .card-btn{height:124px;flex-basis:84px}.battle .card-btn.selected{translate:0 -7px!important}
+  .battle .controls,.battle .items{margin-top:6px}.battle .controls,.battle .items,.battle .player-strip{border-radius:8px}
+}
