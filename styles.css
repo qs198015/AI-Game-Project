@@ -541,3 +541,24 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .card-btn{height:124px;flex-basis:84px}.battle .card-btn.selected{translate:0 -7px!important}
   .battle .controls,.battle .items{margin-top:6px}.battle .controls,.battle .items,.battle .player-strip{border-radius:8px}
 }
+
+/* 最终 Battle 座位校正：人物属于场景层，信息与对白退到头部两侧。 */
+@media(min-width:900px){
+  .battle .opponents{left:14%;right:14%;top:12%;height:42%;grid-template-columns:repeat(3,minmax(0,1fr));gap:5%}
+  .battle .opponent{isolation:isolate}.battle .opponent .avatar:after{display:none!important}
+  .battle .opponent .portrait-motion{width:100%;height:100%}.battle .opponent .character-sprite{max-width:none}
+  .battle .opponent:nth-child(1) .avatar{inset:1% 4% 0 -4%}.battle .opponent:nth-child(2) .avatar{inset:-1% 0 0}.battle .opponent:nth-child(3) .avatar{inset:-2% -4% 0 4%}
+  .battle .opponent>div{position:absolute;z-index:8;width:128px;margin:0;padding:6px 8px;background:rgba(13,6,3,.76);backdrop-filter:blur(3px);box-shadow:inset 0 0 0 1px #170904,0 5px 13px #0009;translate:none!important}
+  .battle .opponent:nth-child(1)>div{left:-4%;top:49%}.battle .opponent:nth-child(2)>div{right:-11%;top:8%}.battle .opponent:nth-child(3)>div{right:-5%;top:49%}
+  .battle .opponent>div small{font-size:8px}.battle .opponent>div .pet-status{margin-top:2px}.battle .opponent>div .hp{margin-top:2px}
+
+  .battle .speech{top:-118%;width:210px;min-height:56px}.battle .speech[data-speaker="0"]{left:-23%}.battle .speech[data-speaker="1"]{left:54%}.battle .speech[data-speaker="2"]{left:131%}
+  .battle .speech[data-speaker="0"]:after{left:74%}.battle .speech[data-speaker="1"]:after{left:48%}.battle .speech[data-speaker="2"]:after{left:22%}
+
+  .battle .hand-area{bottom:28px;height:205px;padding:12px 10px 10px;border:1px solid rgba(168,119,60,.58);border-radius:8px;background:linear-gradient(180deg,rgba(20,8,4,.2),rgba(9,3,2,.7));overflow:hidden}
+  .battle .hand{height:158px;gap:0;padding:4px 8px 0}.battle .card-btn{height:138px;margin-inline:-5px}.battle .card-btn:hover:not(:disabled),.battle .card-btn.selected{translate:0 -8px!important}
+
+  .battle .table-zone:before{border-color:rgba(211,157,78,.66)}
+  .battle .player-strip,.battle .controls .claim-row,.battle .items,.battle .hand-area,.battle .opponent>div{border-color:var(--hud-border)}
+  .battle .controls{right:var(--hud-edge)}.battle .items{right:var(--hud-edge)}
+}
