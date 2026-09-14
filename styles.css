@@ -703,7 +703,7 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 @media(min-width:900px){
   .battle .battle-table-stage{display:block;position:fixed;z-index:5;inset:0;width:100vw;height:100vh;pointer-events:none}
   .battle .battle-table-stage>.opponents{position:absolute!important;display:block!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important}
-  .battle .battle-table-stage .seat-slot{position:absolute!important;top:auto!important;bottom:44vh!important;height:450px;width:255px;margin:0;translate:-50% 0;transform:none!important;transform-origin:center bottom}
+  .battle .battle-table-stage .seat-slot{position:absolute!important;top:auto!important;bottom:40vh!important;height:450px;width:255px;margin:0;translate:-50% 0;transform:none!important;transform-origin:center bottom}
   .battle .battle-table-stage .seat-slot-1{left:25%;height:445px;width:260px}.battle .battle-table-stage .seat-slot-2{left:49%;height:465px;width:260px}.battle .battle-table-stage .seat-slot-3{left:70%;height:475px;width:260px}
   .battle .battle-table-stage .seat-actor,.battle .battle-table-stage .portrait-motion{position:absolute;inset:0!important;width:100%;height:100%;translate:0 0!important;transform:none!important;transform-origin:center bottom}
   .battle .battle-table-stage .character-sprite{position:absolute;top:auto!important;bottom:0!important;left:50%;height:100%;width:auto;aspect-ratio:15/32;translate:-50% 0!important;transform-origin:center bottom}
