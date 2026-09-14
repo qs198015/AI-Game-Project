@@ -89,11 +89,19 @@
   const REACTION_LINES={shadow:{observe:['我在听。','继续。'],play:['看我的。','月光作证。'],bluff:['别眨眼。','真相很安静。'],suspect:['有意思。','你在试探我？'],fooled:['居然漏看了。'],discover:['破绽。','到此为止。'],win:['上钩了。','承让。'],collapse:['只是手滑。'],penalty:['帽子歪了。']},tail:{observe:['请继续演。'],play:['当然是真的。'],bluff:['亲爱的，当然。','你会相信的。'],suspect:['你真的觉得我会上当？','演得还不够。'],fooled:['这不可能！'],discover:['抓到你了。'],win:['真乖。','掌声呢？'],collapse:['我是故意的。'],penalty:['这不优雅。']},fang:{observe:['快点出牌。'],play:['看好了。'],bluff:['凭狗格担保！'],suspect:['等等……这牌不对！','我才不信。'],fooled:['你骗狗？！'],discover:['果然有鬼！'],win:['哈！','鼻子不会错。'],collapse:['不算！再来！'],penalty:['谁动了椅子？']},snow:{observe:['我只是看看哦。'],play:['给、给你。'],bluff:['相信我嘛~','很安全哦。'],suspect:['我只是随便猜一下哦~','等等……'],fooled:['欸？！'],discover:['被我猜到啦。'],win:['好耶！','可爱也是实力。'],collapse:['骰子欺负我！'],penalty:['耳朵先投降啦。']},crow:{observe:['正在计算。'],play:['请判断。'],bluff:['概率正常。'],suspect:['你的眼神已经暴露你了。','概率不对。'],fooled:['样本异常。'],discover:['结论成立。'],win:['如我所料。','误差为零。'],collapse:['需要重算。'],penalty:['公式在冒烟。']}};
   const emotionFor=(character,event)=>CHARACTER_EMOTIONS[character?.id]?.[event]||event||'idle';
   const SPRITES={shadow:'player_blackcat_sheet.png',fang:'ironfang_bulldog_sheet.png',tail:'foxtail_fox_sheet.png',snow:'rabbit_noble_sheet.png',crow:'owl_gentleman_sheet.png'};
+  const EXPRESSION_FRAMES={
+    shadow:{triumphant:2,confident:0,suspicious:2,shocked:2,dejected:0},
+    fang:{mocking:2,angry:2,defiant:2,shocked:2,confident:0},
+    tail:{sly:2,nervous:0,embarrassed:0,shocked:2},
+    snow:{lucky:2,cute:0,scared:2,nervous:0},
+    crow:{insight:2,surprised:2,thinking:0}
+  };
   function portraitMarkup(character,mood='idle'){
     const source=character.art||character.portrait;const image=source?`<img src="${source}" alt="${character.name}头像" loading="eager">`:`<span class="portrait-fallback">${character.emoji}</span>`;
     const sprite=SPRITES[character.id]?`<i class="character-sprite" style="--sprite:url('assets/characters/animation-sheets/${SPRITES[character.id]}')" aria-hidden="true"></i>`:'';
     const ears=['tail','snow'].includes(character.id)?'<i class="ear-twitch ear-left" aria-hidden="true"></i><i class="ear-twitch ear-right" aria-hidden="true"></i>':'';
-    return `<span class="portrait-motion">${image}${sprite}<i class="blink-lid" aria-hidden="true"></i>${ears}</span><i class="expression-mark" title="${EXPRESSIONS[mood]||'冷静'}">${EMOTION_MARKS[mood]||'◆'}</i>`;
+    const expressionFrame=EXPRESSION_FRAMES[character.id]?.[mood]??0;
+    return `<span class="portrait-motion" data-expression-frame="${expressionFrame}">${image}${sprite}<i class="blink-lid" aria-hidden="true"></i>${ears}</span><i class="expression-mark" title="${EXPRESSIONS[mood]||'冷静'}">${EMOTION_MARKS[mood]||'◆'}</i>`;
   }
 
   function scheduleBattleBlink(){

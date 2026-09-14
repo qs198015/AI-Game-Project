@@ -682,3 +682,37 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 /* 桌面安全区：扇形两端完整留在 900px 画布内；卡面只使用精灵图原始图案。 */
 .battle .card-btn .emoji{display:none!important}
 @media(min-width:900px){.battle .hand-area{bottom:30px}}
+
+/* 围桌临场感：表情表单帧为 480×1024，按 15/32 比例显示，绝不横向拉伸。 */
+.battle .opponent .character-sprite,.battle #playerAvatar .character-sprite{aspect-ratio:15/32;width:auto;height:100%;background-position:0 center!important;transition:background-position .16s steps(1),filter .28s ease}
+.battle .portrait-motion[data-expression-frame="0"] .character-sprite{background-position:0 center!important}
+.battle .portrait-motion[data-expression-frame="2"] .character-sprite{background-position:100% center!important}
+.battle :is(.avatar,#playerAvatar).is-blinking .portrait-motion .character-sprite{background-position:50% center!important}
+@media(min-width:900px){
+  .battle .opponents{left:17%;right:21%;top:13%;height:45%;gap:1.5%;align-items:end}
+  .battle .opponent .avatar{inset:-18% -7% -3%;overflow:visible}
+  .battle .opponent:nth-child(1) .avatar{inset:-14% 1% -3% -8%}.battle .opponent:nth-child(2) .avatar{inset:-20% -5% -3% 1%}.battle .opponent:nth-child(3) .avatar{inset:-22% -9% -3% 4%}
+  .battle .opponent .portrait-motion{inset:0;transform-origin:50% 94%}
+  .battle .opponent .avatar:after{content:"";position:absolute;z-index:0;left:16%;right:16%;bottom:1%;height:8%;border-radius:50%;background:radial-gradient(ellipse,#080200d9 0,rgba(18,6,2,.62) 48%,transparent 76%);filter:blur(5px);transform:perspective(140px) rotateX(66deg)}
+  .battle .opponent .character-sprite{z-index:1;mask-image:linear-gradient(#000 0 91%,rgba(0,0,0,.94) 95%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 91%,rgba(0,0,0,.94) 95%,transparent 100%);filter:brightness(.92) saturate(.96) contrast(1.06) drop-shadow(0 11px 8px #000b)}
+  .battle .opponent.active .character-sprite{filter:brightness(1.01) saturate(1.03) contrast(1.06) drop-shadow(0 11px 8px #000b) drop-shadow(0 0 6px color-mix(in srgb,var(--hero-color) 38%,transparent))}
+}
+
+/* 金框只略大于牌面，透明中心不接触图案或文字。 */
+.battle .card-btn .gold-frame{width:106%;height:106%;filter:drop-shadow(0 0 5px #ffc95d) drop-shadow(0 0 9px #d77b25)}
+
+/* 用正式按钮资源的金属边缘做九宫格外框，保留内部道具格与数量角标。 */
+.battle .items{border:14px solid transparent!important;border-image-source:url("assets/battle/ui/buttons/normal/use_item.png");border-image-slice:150 190;border-image-width:14px;border-image-repeat:stretch;background:linear-gradient(100deg,rgba(10,4,2,.92),rgba(38,17,7,.86),rgba(8,3,2,.94))!important;box-shadow:0 9px 24px #000c!important}
+@media(min-width:900px){.battle .items{right:10px;bottom:9px;width:346px;height:132px;padding:2px 5px 5px}.battle .items .section-title{height:22px;margin-bottom:2px}.battle .item-buttons button{min-height:76px}}
+@media(max-width:899px){.battle .items{border-width:10px!important;border-image-width:10px}.battle .card-btn .gold-frame{width:105%;height:105%}}
+.battle .items{border-image:url("assets/battle/ui/buttons/normal/use_item.png") 150 190 / 14px stretch!important}
+@media(max-width:899px){.battle .items{border-image-width:10px!important}}
+/* 外框独立覆盖层，不挤压道具内容。 */
+.battle .items{border:0!important;padding:9px 12px 10px!important;overflow:visible}
+.battle .items:before{content:"";position:absolute;z-index:0;inset:-4px;pointer-events:none;border:14px solid transparent;border-image:url("assets/battle/ui/buttons/normal/use_item.png") 100 150 60 150 / 14px / 0 stretch;filter:drop-shadow(0 0 4px rgba(231,174,73,.34))}
+.battle .items>.section-title,.battle .items>.item-buttons{position:relative;z-index:1}
+@media(min-width:900px){.battle .items{height:132px}.battle .items .section-title{height:22px}.battle .item-buttons button{min-height:82px}}
+@media(max-width:899px){.battle .items:before{border-width:10px;border-image-width:10px}}
+/* 仅显示正式资源的外缘像素，中央文字区由遮罩剔除。 */
+.battle .items:before{inset:-5px;border:0;background:url("assets/battle/ui/buttons/normal/use_item.png") center/100% 100% no-repeat;padding:7px;clip-path:polygon(5% 0,95% 0,100% 18%,100% 82%,95% 100%,5% 100%,0 82%,0 18%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;filter:drop-shadow(0 0 5px rgba(235,174,67,.48))}
+.battle .items:before{background-size:116% 150%}
