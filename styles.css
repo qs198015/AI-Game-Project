@@ -717,18 +717,6 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 .battle .items:before{inset:-5px;border:0;background:url("assets/battle/ui/buttons/normal/use_item.png") center/100% 100% no-repeat;padding:7px;clip-path:polygon(5% 0,95% 0,100% 18%,100% 82%,95% 100%,5% 100%,0 82%,0 18%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;filter:drop-shadow(0 0 5px rgba(235,174,67,.48))}
 .battle .items:before{background-size:116% 150%}
 
-/* 最终围桌校准：角色躯干下沉到桌沿后方，铁牙补足与红尾、雪球一致的视觉重量。 */
-@media(min-width:900px){
-  .battle .opponents{top:12%;height:47%}
-  .battle .opponent .avatar{inset:-20% -7% -11%}
-  .battle .opponent:nth-child(1) .avatar{inset:-32% -3% -12% -12%}
-  .battle .opponent:nth-child(2) .avatar{inset:-24% -6% -11% 0}
-  .battle .opponent:nth-child(3) .avatar{inset:-26% -10% -11% 3%}
-  .battle .opponent .avatar:after{bottom:2%;left:11%;right:11%;height:10%;filter:blur(7px)}
-  .battle .opponent .character-sprite{mask-image:linear-gradient(#000 0 92%,rgba(0,0,0,.9) 96%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 92%,rgba(0,0,0,.9) 96%,transparent 100%)}
-}
-@media(min-width:900px){.battle .opponent:nth-child(1) .portrait-motion{translate:0 9%}}
-
 /* 独立座位系统：每个 slot 以桌沿为底部锚点，新角色只需增加 seat 坐标。 */
 @media(min-width:900px){
   .battle .opponents{display:block;inset:0;width:auto;height:auto;pointer-events:none}
@@ -749,3 +737,17 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .seat-slot>div{top:28%}
   .battle .seat-slot-1>div{top:26%}.battle .seat-slot-3>div{top:29%}
 }
+
+/* 桌面前景是真实场景的同坐标切片：角色在后、桌沿在前，不再靠阴影假装接触。 */
+.table-foreground{display:none}
+@media(min-width:900px){
+  .battle .seat-slot .portrait-motion,.battle .seat-slot-1 .portrait-motion,.battle .seat-slot-2 .portrait-motion,.battle .seat-slot-3 .portrait-motion{inset:0;translate:0 0!important;transform:none!important;transform-origin:bottom center}
+  .battle .seat-slot .character-sprite{top:auto;bottom:-12%;height:112%;width:auto;aspect-ratio:15/32;transform-origin:bottom center}
+  .battle .seat-contact{bottom:-1%;height:8%;filter:blur(6px)}
+  .battle .table-foreground{display:block;position:fixed;z-index:6;left:0;right:0;top:44vh;height:18vh;pointer-events:none;background-image:url("assets/battle/backgrounds/wolf_crest_tavern_table.png");background-repeat:no-repeat;background-size:100vw 100vh;background-position:0 -44vh;mask-image:linear-gradient(transparent 0,#000 13%,#000 100%);-webkit-mask-image:linear-gradient(transparent 0,#000 13%,#000 100%)}
+}
+/* 选中 DOM 为 card > card-art + gold-frame；调试红框确认后已移除。 */
+.battle .card-btn>.gold-frame{position:absolute!important;z-index:7;inset:-5px -4px!important;width:auto!important;height:auto!important;translate:0 0!important;background:url("assets/battle/cards-and-items/cards_items_sheet_01.png") 66.667% 100%/400% 200% no-repeat;pointer-events:none;opacity:0}
+.battle .card-btn.selected>.gold-frame{opacity:1}
+.battle .card-btn:not(.selected)>.gold-frame{opacity:0}
+@media(min-width:900px){.battle .seat-slot>div{top:28%!important}.battle .seat-slot-1>div{top:26%!important}.battle .seat-slot-3>div{top:29%!important}}
