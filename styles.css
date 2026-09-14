@@ -716,3 +716,15 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 /* 仅显示正式资源的外缘像素，中央文字区由遮罩剔除。 */
 .battle .items:before{inset:-5px;border:0;background:url("assets/battle/ui/buttons/normal/use_item.png") center/100% 100% no-repeat;padding:7px;clip-path:polygon(5% 0,95% 0,100% 18%,100% 82%,95% 100%,5% 100%,0 82%,0 18%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;filter:drop-shadow(0 0 5px rgba(235,174,67,.48))}
 .battle .items:before{background-size:116% 150%}
+
+/* 最终围桌校准：角色躯干下沉到桌沿后方，铁牙补足与红尾、雪球一致的视觉重量。 */
+@media(min-width:900px){
+  .battle .opponents{top:12%;height:47%}
+  .battle .opponent .avatar{inset:-20% -7% -11%}
+  .battle .opponent:nth-child(1) .avatar{inset:-32% -3% -12% -12%}
+  .battle .opponent:nth-child(2) .avatar{inset:-24% -6% -11% 0}
+  .battle .opponent:nth-child(3) .avatar{inset:-26% -10% -11% 3%}
+  .battle .opponent .avatar:after{bottom:2%;left:11%;right:11%;height:10%;filter:blur(7px)}
+  .battle .opponent .character-sprite{mask-image:linear-gradient(#000 0 92%,rgba(0,0,0,.9) 96%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 92%,rgba(0,0,0,.9) 96%,transparent 100%)}
+}
+@media(min-width:900px){.battle .opponent:nth-child(1) .portrait-motion{translate:0 9%}}
