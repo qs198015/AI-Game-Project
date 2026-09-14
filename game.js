@@ -277,7 +277,7 @@
   els.battleScreen.addEventListener('click',event=>{if(event.target.closest?.('button'))playSfx('button_click');});
   els.menuScreen.addEventListener('click',event=>{if(event.target.closest?.('.menu-button-image,button')){startMusic();tone();}});
   scheduleBattleBlink();
-  if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+  if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(registration=>registration.update()).catch(()=>{}));
   playIntro();
   window.__BLACK_MOON__={CARDS,AI,PLAYERS,EVENTS,ACHIEVEMENTS,MENU_BUTTON_ASSETS,claimTrue,freshState,endIntro,debug:{getState:()=>state,startBoss,beginRound,advance,resolvePenalty,cueReaction,cameraEffect}};
 })();
