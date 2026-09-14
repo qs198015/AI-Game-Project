@@ -162,6 +162,12 @@
   <dialog id="penaltyDialog" class="penalty-dialog" aria-labelledby="penaltyTitle">
     <p class="eyebrow">BLACK MOON PUNISHMENT</p><h2 id="penaltyTitle">黑月正在讨债</h2>
     <p id="penaltyText">骗局翻车了。选一种方式把尊严赎回来；每种方式在本次挑战中只能使用一次。</p>
+    <div class="penalty-stage" id="penaltyStage" aria-live="polite">
+      <div class="penalty-spotlight" aria-hidden="true"></div>
+      <div class="penalty-prop" id="penaltyProp" aria-hidden="true"><span>🌑</span></div>
+      <div class="penalty-actor" id="penaltyActor" aria-hidden="true"></div>
+      <strong id="penaltyResult">选择今晚的社死方式</strong>
+    </div>
     <div class="penalty-choices" id="penaltyChoices">
       <button data-penalty="roulette"><b>🎡 命运轮盘</b><span>赌一次反转：可能回血，也可能只赚到一句嘲笑。</span></button>
       <button data-penalty="liar"><b>🍷 骗子挑战</b><span>下一回合怀疑降低，但奖励也会减少。</span></button>
