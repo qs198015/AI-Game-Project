@@ -686,3 +686,11 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 }
 .battle .card-btn>.gold-frame{inset:0!important;width:100%!important;height:100%!important;translate:0 0!important;background-image:url("assets/battle/ui/card-selected-frame.png")!important;background-position:center!important;background-size:100% 100%!important;background-repeat:no-repeat!important;transform:scale(1.065);transform-origin:center;opacity:0;pointer-events:none;z-index:7}
 .battle .card-btn.selected>.gold-frame{opacity:1}.battle .card-btn:not(.selected)>.gold-frame{opacity:0}
+
+/* 角色视觉落点微调：不触碰 seat/stage，只下移各自 avatar wrapper。 */
+@media(min-width:900px){
+  .battle .opponent:nth-child(1){top:0}
+  .battle .opponent:nth-child(1) .avatar,.battle .opponent:nth-child(1) .seat-contact{transform:translateY(100px)}
+  .battle .opponent:nth-child(2) .avatar,.battle .opponent:nth-child(2) .seat-contact{transform:translateY(60px)}
+  .battle .opponent:nth-child(3) .avatar,.battle .opponent:nth-child(3) .seat-contact{transform:translateY(60px)}
+}
