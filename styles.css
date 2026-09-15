@@ -673,8 +673,11 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 .battle-table-stage{display:contents}
 .table-foreground{display:none}
 @media(min-width:900px){
-  .battle .table-foreground{display:block;position:absolute;z-index:7;inset:0;pointer-events:none;background:url("assets/battle/backgrounds/wolf_crest_tavern_table.png") center top/cover no-repeat;clip-path:polygon(0 100%,18% 100%,25% 57%,36% 51%,50% 49%,64% 51%,82% 58%,100% 70%,100% 100%);filter:brightness(.62) saturate(.9) contrast(1.06);opacity:.9}
-  .battle #playerAvatar .character-sprite{mask-image:linear-gradient(#000 0 54%,transparent 62%);-webkit-mask-image:linear-gradient(#000 0 54%,transparent 62%)}
+  .battle .table-foreground{display:block;position:absolute;z-index:7;inset:0;pointer-events:none;background:url("assets/battle/backgrounds/wolf_crest_tavern_table.png") center top/cover no-repeat;clip-path:polygon(0 82%,18% 72%,25% 57%,36% 51%,50% 49%,64% 51%,82% 58%,100% 70%,100% 100%,0 100%);filter:brightness(.62) saturate(.9) contrast(1.06);opacity:.9}
+  .battle .player-strip{z-index:auto;background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .battle .player-strip:before{content:"";position:absolute;z-index:11;inset:0;pointer-events:none;border:1px solid #9b6a35;background:linear-gradient(100deg,rgba(8,3,2,.9),rgba(36,15,7,.72),rgba(8,3,2,.6));box-shadow:inset 0 0 0 3px #060201,0 8px 22px #000a}
+  .battle .player-portrait>span{z-index:5}
+  .battle .player-portrait>div,.battle .player-strip>.hp{position:relative;z-index:12}
   .battle .table-zone,.battle .hand-area{z-index:9}
   .battle .opponents{display:grid;left:17%;right:21%;top:13%;height:45%;gap:1.5%;align-items:end;pointer-events:none}
   .battle .opponent{position:relative;height:100%;display:block;top:0;transform-origin:50% 100%}
