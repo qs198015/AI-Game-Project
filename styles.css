@@ -668,51 +668,21 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 .battle .items:before{inset:-5px;border:0;background:url("assets/battle/ui/buttons/normal/use_item.png") center/100% 100% no-repeat;padding:7px;clip-path:polygon(5% 0,95% 0,100% 18%,100% 82%,95% 100%,5% 100%,0 82%,0 18%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;filter:drop-shadow(0 0 5px rgba(235,174,67,.48))}
 .battle .items:before{background-size:116% 150%}
 
-@media(min-width:900px){
-  .battle .opponents{display:block;inset:0;width:auto;height:auto;pointer-events:none}
-  .battle .seat-slot{--seat-x:50%;--seat-bottom:47%;--seat-width:250px;--seat-height:470px;position:absolute;left:var(--seat-x);bottom:var(--seat-bottom);width:var(--seat-width);height:var(--seat-height);translate:-50% 0;transform:none!important;transform-origin:bottom center;animation:none;overflow:visible;pointer-events:none}
-  .battle .seat-slot-1{--seat-x:25%;--seat-width:270px;--seat-height:485px}.battle .seat-slot-2{--seat-x:49%;--seat-width:270px;--seat-height:500px}.battle .seat-slot-3{--seat-x:70%;--seat-width:265px;--seat-height:505px}
-  .battle .seat-slot .seat-actor{position:absolute;inset:0!important;width:100%;height:100%;overflow:visible;transform-origin:bottom center}
-  .battle .seat-slot .portrait-motion{position:absolute;inset:0;translate:0 12%;transform-origin:bottom center}
-  .battle .seat-slot-1 .portrait-motion{translate:0 15%}.battle .seat-slot-2 .portrait-motion{translate:0 12%}.battle .seat-slot-3 .portrait-motion{translate:0 13%}
-  .battle .seat-slot .character-sprite{inset:0 auto 0 50%;height:100%;width:auto;aspect-ratio:15/32;translate:-50% 0;transform-origin:bottom center;mask-image:linear-gradient(#000 0 90%,rgba(0,0,0,.88) 95%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 90%,rgba(0,0,0,.88) 95%,transparent 100%)}
-  .battle .seat-contact{display:block;position:absolute;z-index:0;left:9%;right:9%;bottom:-4%;height:12%;border-radius:50%;background:radial-gradient(ellipse,#050100e8 0,rgba(22,7,2,.7) 48%,transparent 74%);filter:blur(8px);transform:perspective(140px) rotateX(68deg)}
-  .battle .seat-slot>div{position:absolute;z-index:6;top:15%;width:118px;margin:0!important;translate:0!important}.battle .seat-slot-1>div{left:-2%}.battle .seat-slot-2>div{left:-18%}.battle .seat-slot-3>div{right:-20%}
-}
-.battle .card-btn .gold-frame{inset:50% auto auto 50%;width:105%;height:105%;translate:-50% -50%;background-position:66.667% 100%;pointer-events:none}
-@media(min-width:900px){.battle .opponents>.seat-slot{top:auto!important;bottom:47%!important}}
-@media(min-width:900px){.battle .opponents>.seat-slot{position:fixed!important;top:auto!important;bottom:47vh!important}}
-@media(min-width:900px){
-  .battle .seat-slot>div{top:28%}
-  .battle .seat-slot-1>div{top:26%}.battle .seat-slot-3>div{top:29%}
-}
 
-.table-foreground{display:none}
-@media(min-width:900px){
-  .battle .seat-slot .portrait-motion,.battle .seat-slot-1 .portrait-motion,.battle .seat-slot-2 .portrait-motion,.battle .seat-slot-3 .portrait-motion{inset:0;translate:0 0!important;transform:none!important;transform-origin:bottom center}
-  .battle .seat-slot .character-sprite{top:auto;bottom:-12%;height:112%;width:auto;aspect-ratio:15/32;transform-origin:bottom center}
-  .battle .seat-contact{bottom:-1%;height:8%;filter:blur(6px)}
-  .battle .table-foreground{display:block;position:fixed;z-index:6;left:0;right:0;top:44vh;height:18vh;pointer-events:none;background-image:url("assets/battle/backgrounds/wolf_crest_tavern_table.png");background-repeat:no-repeat;background-size:100vw 100vh;background-position:0 -44vh;mask-image:linear-gradient(transparent 0,#000 13%,#000 100%);-webkit-mask-image:linear-gradient(transparent 0,#000 13%,#000 100%)}
-}
-.battle .card-btn>.gold-frame{position:absolute!important;z-index:7;inset:-5px -4px!important;width:auto!important;height:auto!important;translate:0 0!important;background:url("assets/battle/cards-and-items/cards_items_sheet_01.png") 66.667% 100%/400% 200% no-repeat;pointer-events:none;opacity:0}
-.battle .card-btn.selected>.gold-frame{opacity:1}
-.battle .card-btn:not(.selected)>.gold-frame{opacity:0}
-@media(min-width:900px){.battle .seat-slot>div{top:28%!important}.battle .seat-slot-1>div{top:26%!important}.battle .seat-slot-3>div{top:29%!important}}
-
+/* 恢复 9f43bb9 的角色场景定位；battle-table-stage 仅透传，不参与重新排座。 */
 .battle-table-stage{display:contents}
+.table-foreground{display:none!important}
 @media(min-width:900px){
-  .battle .battle-table-stage{display:block;position:fixed;z-index:5;inset:0;width:100vw;height:100vh;pointer-events:none}
-  .battle .battle-table-stage>.opponents{position:absolute!important;display:block!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important}
-  .battle .battle-table-stage .seat-slot{position:absolute!important;top:auto!important;bottom:44vh!important;height:450px;width:255px;margin:0;translate:-50% 0;transform:none!important;transform-origin:center bottom}
-  .battle .battle-table-stage .seat-slot-1{left:25%;height:445px;width:260px}.battle .battle-table-stage .seat-slot-2{left:49%;height:465px;width:260px}.battle .battle-table-stage .seat-slot-3{left:70%;height:475px;width:260px}
-  .battle .battle-table-stage .seat-actor,.battle .battle-table-stage .portrait-motion{position:absolute;inset:0!important;width:100%;height:100%;translate:0 0!important;transform:none!important;transform-origin:center bottom}
-  .battle .battle-table-stage .character-sprite{position:absolute;top:auto!important;bottom:0!important;left:50%;height:100%;width:auto;aspect-ratio:15/32;translate:-50% 0!important;transform-origin:center bottom}
-  .battle .battle-table-stage .seat-contact{bottom:-1%;height:9%}
-  .battle .battle-table-stage>.table-foreground{position:absolute;inset:44vh 0 auto;height:18vh}
+  .battle .opponents{display:grid;left:17%;right:21%;top:13%;height:45%;gap:1.5%;align-items:end;pointer-events:none}
+  .battle .opponent{position:relative;height:100%;display:block;top:0;transform-origin:50% 100%}
+  .battle .opponent .avatar{display:block;position:absolute;inset:-18% -7% -3%;overflow:visible}
+  .battle .opponent:nth-child(1){top:44px}
+  .battle .opponent:nth-child(1) .avatar{inset:-14% 1% -3% -8%}
+  .battle .opponent:nth-child(2) .avatar{inset:-20% -5% -3% 1%}
+  .battle .opponent:nth-child(3) .avatar{inset:-22% -9% -3% 4%}
+  .battle .opponent .portrait-motion{position:absolute;inset:0;overflow:visible;transform-origin:50% 94%}
+  .battle .opponent .character-sprite{inset:0 auto 0 50%;height:100%;width:auto;aspect-ratio:15/32;translate:-50% 0;transform-origin:50% 94%;mask-image:linear-gradient(#000 0 92%,rgba(0,0,0,.9) 96%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 92%,rgba(0,0,0,.9) 96%,transparent 100%)}
+  .battle .seat-contact{display:block;position:absolute;z-index:0;left:11%;right:11%;bottom:2%;height:10%;border-radius:50%;background:radial-gradient(ellipse,#080200d9 0,rgba(18,6,2,.62) 48%,transparent 76%);filter:blur(7px);transform:perspective(140px) rotateX(66deg)}
 }
 .battle .card-btn>.gold-frame{inset:0!important;width:100%!important;height:100%!important;translate:0 0!important;background-image:url("assets/battle/ui/card-selected-frame.png")!important;background-position:center!important;background-size:100% 100%!important;background-repeat:no-repeat!important;transform:scale(1.065);transform-origin:center;opacity:0;pointer-events:none;z-index:7}
 .battle .card-btn.selected>.gold-frame{opacity:1}.battle .card-btn:not(.selected)>.gold-frame{opacity:0}
-
-/* 仅铁牙座位下沉；红尾、雪球与主持人沿用已验收落位。 */
-@media(min-width:900px){.battle .battle-table-stage .seat-slot-1{bottom:40vh!important}}
-@media(min-width:900px){.battle>.tavern-host{top:auto;bottom:47vh}}
