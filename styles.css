@@ -703,7 +703,7 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 @media(min-width:900px){
   .battle .battle-table-stage{display:block;position:fixed;z-index:5;inset:0;width:100vw;height:100vh;pointer-events:none}
   .battle .battle-table-stage>.opponents{position:absolute!important;display:block!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important}
-  .battle .battle-table-stage .seat-slot{position:absolute!important;top:auto!important;bottom:40vh!important;height:450px;width:255px;margin:0;translate:-50% 0;transform:none!important;transform-origin:center bottom}
+  .battle .battle-table-stage .seat-slot{position:absolute!important;top:auto!important;bottom:44vh!important;height:450px;width:255px;margin:0;translate:-50% 0;transform:none!important;transform-origin:center bottom}
   .battle .battle-table-stage .seat-slot-1{left:25%;height:445px;width:260px}.battle .battle-table-stage .seat-slot-2{left:49%;height:465px;width:260px}.battle .battle-table-stage .seat-slot-3{left:70%;height:475px;width:260px}
   .battle .battle-table-stage .seat-actor,.battle .battle-table-stage .portrait-motion{position:absolute;inset:0!important;width:100%;height:100%;translate:0 0!important;transform:none!important;transform-origin:center bottom}
   .battle .battle-table-stage .character-sprite{position:absolute;top:auto!important;bottom:0!important;left:50%;height:100%;width:auto;aspect-ratio:15/32;translate:-50% 0!important;transform-origin:center bottom}
@@ -713,12 +713,6 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 .battle .card-btn>.gold-frame{inset:0!important;width:100%!important;height:100%!important;translate:0 0!important;background-image:url("assets/battle/ui/card-selected-frame.png")!important;background-position:center!important;background-size:100% 100%!important;background-repeat:no-repeat!important;transform:scale(1.065);transform-origin:center;opacity:0;pointer-events:none;z-index:7}
 .battle .card-btn.selected>.gold-frame{opacity:1}.battle .card-btn:not(.selected)>.gold-frame{opacity:0}
 
-@media(min-width:900px){
-  .battle .battle-table-stage .seat-slot-1{bottom:39vh!important}
-  .battle .battle-table-stage .seat-slot-2{bottom:40vh!important}
-  .battle .battle-table-stage .seat-slot-3{bottom:39vh!important}
-  .battle .battle-table-stage>.tavern-host{display:block;position:absolute;z-index:2;left:81%;right:auto;top:auto;bottom:40vh;width:190px;height:365px;transform:none;translate:-50% 0;transform-origin:center bottom;pointer-events:none;filter:brightness(.86) saturate(.86) drop-shadow(0 12px 9px #000c)}
-  .battle .battle-table-stage>.tavern-host img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;transform-origin:center bottom}
-  .battle:has(.opponent.character-crow) .battle-table-stage>.tavern-host{display:none}
-}
-@media(min-width:900px){.battle .battle-table-stage>.tavern-host{left:84%;bottom:39vh;width:240px;height:460px}}
+/* 仅铁牙座位下沉；红尾、雪球与主持人沿用已验收落位。 */
+@media(min-width:900px){.battle .battle-table-stage .seat-slot-1{bottom:40vh!important}}
+@media(min-width:900px){.battle>.tavern-host{top:auto;bottom:47vh}}
