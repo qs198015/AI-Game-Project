@@ -18,6 +18,7 @@
   <link rel="preload" href="assets/menu-buttons/button-settings.png" as="image" type="image/png" fetchpriority="high">
   <link rel="preload" href="assets/main-menu/main-menu-v3.png" as="image" type="image/png" fetchpriority="high">
   <link rel="preload" href="assets/battle/backgrounds/wolf_crest_tavern_table.png" as="image" type="image/png">
+  <link rel="preload" href="assets/battle/backgrounds/table_front_occlusion.png?v=2" as="image" type="image/png">
   <link rel="preload" href="assets/battle/ui/buttons/normal/play.png" as="image" type="image/png">
   <link rel="preload" href="assets/battle/ui/buttons/normal/doubt.png" as="image" type="image/png">
   <link rel="preload" href="assets/battle/ui/buttons/normal/believe.png" as="image" type="image/png">
@@ -28,7 +29,7 @@
   <link rel="preload" href="assets/menu-buttons/button-black-moon-trial-1.png" as="image" type="image/png" fetchpriority="low">
   <link rel="preload" href="assets/menu-buttons/button-pet-gallery-1.png" as="image" type="image/png" fetchpriority="low">
   <link rel="preload" href="assets/menu-buttons/button-settings-1.png" as="image" type="image/png" fetchpriority="low">
-  <link rel="preload" href="assets/characters/portraits/player_blackcat.png" as="image" type="image/png">
+  <link rel="preload" href="assets/characters/transparent/cat.png" as="image" type="image/png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -74,8 +75,8 @@
       <section class="select-rivals" aria-label="今晚可能遇到的 AI 对手">
         <div><small>BLACK MOON TABLE</small><b>今晚可能遇到的对手</b></div>
         <article><img src="assets/portraits/crow.svg" alt="鸦策"><span><b>鸦策</b><small>冷静观察 · 擅长读心</small></span></article>
-        <article><img src="assets/characters/portraits/ironfang_bulldog.png" alt="铁牙"><span><b>铁牙</b><small>直觉敏锐 · 偶尔误判</small></span></article>
-        <article><img src="assets/characters/portraits/foxtail_fox.png" alt="红尾"><span><b>红尾</b><small>演技高超 · 谎话连篇</small></span></article>
+        <article><img src="assets/characters/transparent/dog.png" alt="铁牙"><span><b>铁牙</b><small>直觉敏锐 · 偶尔误判</small></span></article>
+        <article><img src="assets/characters/transparent/fox.png" alt="红尾"><span><b>红尾</b><small>演技高超 · 谎话连篇</small></span></article>
       </section>
       <button class="primary large" id="confirmCharacterBtn">带他入局</button>
       <button class="text-btn" id="backToMenuBtn">返回门外</button>
@@ -101,7 +102,8 @@
       </header>
 
       <section class="opponents" id="opponents" aria-label="酒桌对手"></section>
-      <aside class="tavern-host" aria-label="鸦策正在主持牌局"><img src="assets/characters/portraits/owl_gentleman.png" alt="鸦策"></aside>
+      <aside class="tavern-host" aria-label="鸦策正在主持牌局"><img src="assets/characters/transparent/owl.png" alt="鸦策"></aside>
+      <img class="table-occlusion-mask" src="assets/battle/backgrounds/table_front_occlusion.png?v=2" alt="" aria-hidden="true" decoding="async">
 
       <section class="round-progress" aria-label="章节流程">
         <span class="round-progress-step active" data-round="1">入席</span><i></i><span class="round-progress-step" data-round="2">试探</span><i></i><span class="round-progress-step" data-round="4">黑月事件</span><i></i><span class="round-progress-step" data-round="6">反骗</span><i></i><span class="round-progress-step" data-round="8">终局</span>
@@ -124,7 +126,7 @@
       </section>
 
       <section class="player-strip">
-        <div class="player-portrait"><span id="playerAvatar"><img src="assets/characters/portraits/player_blackcat.png" alt="夜影头像"></span><div><strong id="playerName">夜影</strong><small id="playerTitle">九命诈骗师 · 你</small></div></div>
+        <div class="player-portrait"><span id="playerAvatar"><img src="assets/characters/transparent/cat.png" alt="夜影头像"></span><div><strong id="playerName">夜影</strong><small id="playerTitle">九命诈骗师 · 你</small></div></div>
         <div class="hp" id="playerHp" aria-label="夜影生命值"></div>
       </section>
 
