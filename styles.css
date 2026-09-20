@@ -587,7 +587,7 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .tavern-host img{width:100%;height:100%;object-fit:contain;object-position:center bottom;animation:tavern-host-seated 5.9s -2.1s ease-in-out infinite}
   .battle:has(.opponent.character-crow) .tavern-host{display:none}
 
-  .table-occlusion-mask{display:block;position:absolute;z-index:20;left:0;top:28%;width:100%;height:auto;pointer-events:none;filter:brightness(.72) saturate(.88) contrast(1.08)}
+  .table-occlusion-mask{display:block;position:absolute;z-index:20;left:0;top:40%;width:100%;height:auto;pointer-events:none;filter:brightness(.72) saturate(.88) contrast(1.08)}
 
   .battle .table-zone{z-index:7;left:36%;top:49%;width:29%;height:24%}
   .battle .table-zone:before{inset:8% -46% -10%;border:0;border-bottom:2px solid rgba(225,164,79,.55);box-shadow:none}
