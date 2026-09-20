@@ -728,3 +728,47 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 }
 
 @media(max-width:899px){.battle .table-depth-layer{display:none}}
+
+/* Battle 六层真实场景：背景(1) → 对手(5) → duzo 赌桌(10) → 交互(15) → 玩家(20) → HUD(30)。 */
+.battle .battle-layer{position:absolute;pointer-events:none}
+.battle>.battle-layer-background{inset:0;z-index:1}
+.battle>.battle-layer-background img{width:100%;height:100%;object-fit:cover;object-position:center}
+.battle .battle-layer-opponents{z-index:5}
+.battle>.battle-layer-table{inset:0;z-index:10;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.82) saturate(.98) contrast(1.04)}
+.battle .battle-layer-interaction{z-index:15;pointer-events:auto}
+.battle>.battle-layer-player{z-index:20;left:-2.5%;bottom:-8%;width:28%;height:65%;filter:brightness(.9) saturate(.96) drop-shadow(12px 14px 13px #000d)}
+.battle>.battle-layer-player>span,.battle>.battle-layer-player .portrait-motion{position:absolute;inset:0;display:block}
+.battle>.battle-layer-player .portrait-motion>img{display:block;width:100%;height:100%;object-fit:contain;object-position:left bottom;opacity:1!important;mask-image:none!important;-webkit-mask-image:none!important}
+.battle .topbar,.battle .battle-brand,.battle .player-strip,.battle .hand-area,.battle .controls,.battle .items,.battle .log-panel,.battle .motion-log,.battle .round-progress{z-index:30}
+
+@media(min-width:900px){
+  .battle .opponents{z-index:5;left:15%;right:8%;top:10%;height:49%;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;align-items:end;overflow:visible}
+  .battle .opponent{height:100%;overflow:visible}
+  .battle .opponent .avatar{inset:0!important;overflow:visible}
+  .battle .opponent .portrait-motion{inset:0;overflow:visible}
+  .battle .opponent .portrait-motion>img{opacity:1!important;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain!important;object-position:center bottom!important;transform:none!important;mask-image:none!important;-webkit-mask-image:none!important;filter:brightness(.98) saturate(1.02) contrast(1.04) drop-shadow(0 8px 5px rgba(0,0,0,.65))}
+  .battle .opponent:nth-child(1) .avatar{inset:7% -6% 0 -6%!important}
+  .battle .opponent:nth-child(2) .avatar{inset:-1% -7% 0 -7%!important}
+  .battle .opponent:nth-child(3) .avatar{inset:-4% -6% 0 -6%!important}
+  .battle .opponent:nth-child(4) .avatar{inset:4% -3% 0 -3%!important}
+  .battle .opponent>div{z-index:31;width:112px;padding:3px 5px;text-shadow:0 2px 3px #000,0 0 9px #000}
+  .battle .opponent:nth-child(1)>div{left:-6%;top:10%}.battle .opponent:nth-child(2)>div{left:-18%;right:auto;top:5%}.battle .opponent:nth-child(3)>div{right:-20%;top:10%}.battle .opponent:nth-child(4)>div{right:-24%;top:18%}
+  .battle .table-zone{z-index:15;left:34%;top:47%;width:33%;height:25%}
+  .battle .player-strip{left:18px;bottom:18px;width:300px;height:142px;padding:16px 14px 12px 116px}
+  .battle .player-portrait>div{position:relative;z-index:31;text-align:left}
+}
+@media(max-width:899px){
+  .battle>.battle-layer-table{display:block}
+  .battle>.battle-layer-player{left:-8%;bottom:2%;width:42%;height:46%}
+  .battle .opponents{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .battle .opponent .portrait-motion>img{mask-image:none!important;-webkit-mask-image:none!important}
+}
+@media(min-width:900px){
+  /* 完整立绘向后排座位抬高，身体由 duzo 的真实桌面像素自然遮挡。 */
+  .battle .opponents{top:-8%;height:51%}
+  .battle .opponent:nth-child(1) .avatar{inset:7% -6% 0 -6%!important}
+  .battle .opponent:nth-child(2) .avatar{inset:-1% -7% 0 -7%!important}
+  .battle .opponent:nth-child(3) .avatar{inset:-4% -6% 0 -6%!important}
+  .battle .opponent:nth-child(4) .avatar{inset:4% -3% 0 -3%!important}
+  .battle .opponent:nth-child(1)>div{top:30%}.battle .opponent:nth-child(2)>div{top:24%}.battle .opponent:nth-child(3)>div{top:29%}.battle .opponent:nth-child(4)>div{top:35%}
+}
