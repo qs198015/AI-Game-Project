@@ -707,7 +707,6 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle>.battle-scene{z-index:1}
   .battle>.battle-scene img{filter:brightness(.82) saturate(.98) contrast(1.04)}
   .battle>.battle-scene:after{background:linear-gradient(90deg,rgba(5,2,1,.18),transparent 16% 84%,rgba(5,2,1,.2)),linear-gradient(180deg,rgba(4,1,1,.06),transparent 68%,rgba(4,1,1,.2))}
-  .battle .table-occlusion-mask{display:none!important}
   .battle .opponents{z-index:6;left:15.5%;right:16.5%;top:9%;height:47%;gap:1.5%;align-items:end;overflow:visible;isolation:isolate}
   .battle .opponent{height:100%;overflow:visible;filter:drop-shadow(0 14px 10px rgba(0,0,0,.72))}
   .battle .opponent .avatar{inset:0!important;overflow:visible}
@@ -719,8 +718,13 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .opponent>div{z-index:8;width:126px;padding:3px 6px;text-shadow:0 2px 3px #000,0 0 9px #000}
   .battle .opponent:nth-child(1)>div{left:-3%;top:5%}.battle .opponent:nth-child(2)>div{left:-18%;right:auto;top:4%}.battle .opponent:nth-child(3)>div{right:-32%;top:8%}
 
-  .battle .table-zone{z-index:8;left:34%;top:48%;width:33%;height:24%}
+  .battle .table-depth-layer{display:block;position:absolute;left:0;top:40%;width:100%;height:auto;pointer-events:none;object-fit:contain;object-position:center top;filter:brightness(.82) saturate(.96) contrast(1.04)}
+  .battle .table-middle-layer{z-index:7;clip-path:inset(0 0 70% 0)}
+  .battle .table-front-occlusion{z-index:9;clip-path:inset(30% 0 0 0)}
+  .battle .table-zone{z-index:12;left:34%;top:48%;width:33%;height:24%}
   .battle .table-zone:before{inset:6% -55% -8%;border-bottom:1px solid rgba(238,178,93,.48);box-shadow:0 12px 22px rgba(0,0,0,.25)}
   .battle .speech{z-index:14;top:-128%}
   .battle .topbar,.battle .battle-brand,.battle .player-strip,.battle .hand-area,.battle .controls,.battle .items,.battle .motion-log{z-index:30}
 }
+
+@media(max-width:899px){.battle .table-depth-layer{display:none}}

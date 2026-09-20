@@ -18,6 +18,7 @@
   <link rel="preload" href="assets/menu-buttons/button-settings.png" as="image" type="image/png" fetchpriority="high">
   <link rel="preload" href="assets/main-menu/main-menu-v3.png" as="image" type="image/png" fetchpriority="high">
   <link rel="preload" href="assets/battle/backgrounds/wolf_crest_tavern_table.png" as="image" type="image/png">
+  <link rel="preload" href="assets/battle/backgrounds/table_front_occlusion.png?v=5" as="image" type="image/png">
   <link rel="preload" href="assets/battle/ui/buttons/normal/play.png" as="image" type="image/png">
   <link rel="preload" href="assets/battle/ui/buttons/normal/doubt.png" as="image" type="image/png">
   <link rel="preload" href="assets/battle/ui/buttons/normal/believe.png" as="image" type="image/png">
@@ -101,6 +102,8 @@
       </header>
 
       <section class="opponents" id="opponents" aria-label="酒桌对手"></section>
+      <img class="table-depth-layer table-middle-layer" src="assets/battle/backgrounds/table_front_occlusion.png?v=5" alt="" aria-hidden="true" decoding="async">
+      <img class="table-depth-layer table-front-occlusion" src="assets/battle/backgrounds/table_front_occlusion.png?v=5" alt="" aria-hidden="true" decoding="async">
 
       <section class="round-progress" aria-label="章节流程">
         <span class="round-progress-step active" data-round="1">入席</span><i></i><span class="round-progress-step" data-round="2">试探</span><i></i><span class="round-progress-step" data-round="4">黑月事件</span><i></i><span class="round-progress-step" data-round="6">反骗</span><i></i><span class="round-progress-step" data-round="8">终局</span>
