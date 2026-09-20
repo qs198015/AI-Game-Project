@@ -731,9 +731,9 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 .battle>.battle-layer-background{inset:0;z-index:1}
 .battle>.battle-layer-background img{width:100%;height:100%;object-fit:cover;object-position:center}
 .battle .battle-layer-opponents{z-index:5}
-.battle>.battle-layer-table{z-index:10;left:6%;top:36%;width:88%;height:auto;object-fit:contain;object-position:center top;filter:brightness(.82) saturate(.98) contrast(1.04)}
+.battle>.battle-layer-table{z-index:10;left:6%;top:38%;width:88%;height:auto;object-fit:contain;object-position:center top;filter:brightness(.82) saturate(.98) contrast(1.04)}
 .battle .battle-layer-interaction{z-index:15;pointer-events:auto}
-.battle>.battle-layer-player{z-index:20;left:-3%;bottom:-10%;width:32%;height:78%;filter:brightness(.9) saturate(.96) drop-shadow(12px 14px 13px #000d)}
+.battle>.battle-layer-player{z-index:20;left:-4%;bottom:-12%;width:38%;height:88%;filter:brightness(.9) saturate(.96) drop-shadow(12px 14px 13px #000d)}
 .battle>.battle-layer-player>span,.battle>.battle-layer-player .portrait-motion{position:absolute;inset:0;display:block}
 .battle>.battle-layer-player .portrait-motion>img{display:block;width:100%;height:100%;object-fit:contain;object-position:left bottom;opacity:1!important;mask-image:none!important;-webkit-mask-image:none!important}
 .battle .topbar,.battle .battle-brand,.battle .player-strip,.battle .hand-area,.battle .controls,.battle .items,.battle .log-panel,.battle .motion-log,.battle .round-progress{z-index:30}
@@ -744,10 +744,10 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .opponent .avatar{inset:0!important;overflow:visible}
   .battle .opponent .portrait-motion{inset:0;overflow:visible}
   .battle .opponent .portrait-motion>img{opacity:1!important;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain!important;object-position:center bottom!important;transform:none!important;mask-image:none!important;-webkit-mask-image:none!important;filter:brightness(.98) saturate(1.02) contrast(1.04) drop-shadow(0 8px 5px rgba(0,0,0,.65))}
-  .battle .opponent:nth-child(1) .avatar{inset:0 -18% -5%!important}
-  .battle .opponent:nth-child(2) .avatar{inset:0!important}
-  .battle .opponent:nth-child(3) .avatar{inset:3% 8% 0!important}
-  .battle .opponent:nth-child(4) .avatar{inset:6% 10% 0!important}
+  .battle .opponent:nth-child(1) .avatar{inset:3% -6% 0!important}
+  .battle .opponent:nth-child(2) .avatar{inset:2% 1% 0!important}
+  .battle .opponent:nth-child(3) .avatar{inset:4% 10% 0!important}
+  .battle .opponent:nth-child(4) .avatar{inset:8% 16% 0!important}
   .battle .opponent>div{z-index:31;width:112px;padding:3px 5px;text-shadow:0 2px 3px #000,0 0 9px #000}
   .battle .opponent:nth-child(1)>div{left:-6%;top:10%}.battle .opponent:nth-child(2)>div{left:-18%;right:auto;top:5%}.battle .opponent:nth-child(3)>div{right:-20%;top:10%}.battle .opponent:nth-child(4)>div{right:-24%;top:18%}
   .battle .table-zone{z-index:15;left:34%;top:47%;width:33%;height:25%}
@@ -763,10 +763,10 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 @media(min-width:900px){
   /* 完整立绘向后排座位抬高，身体由 duzo 的真实桌面像素自然遮挡。 */
   .battle .opponents{top:13%;height:47%}
-  .battle .opponent:nth-child(1) .avatar{inset:0 -18% -5%!important}
-  .battle .opponent:nth-child(2) .avatar{inset:0!important}
-  .battle .opponent:nth-child(3) .avatar{inset:3% 8% 0!important}
-  .battle .opponent:nth-child(4) .avatar{inset:6% 10% 0!important}
+  .battle .opponent:nth-child(1) .avatar{inset:3% -6% 0!important}
+  .battle .opponent:nth-child(2) .avatar{inset:2% 1% 0!important}
+  .battle .opponent:nth-child(3) .avatar{inset:4% 10% 0!important}
+  .battle .opponent:nth-child(4) .avatar{inset:8% 16% 0!important}
   .battle .opponent:nth-child(1)>div{top:29%}.battle .opponent:nth-child(2)>div{top:25%}.battle .opponent:nth-child(3)>div{top:30%}.battle .opponent:nth-child(4)>div{top:34%}
 }
 
