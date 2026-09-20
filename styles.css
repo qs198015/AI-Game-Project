@@ -701,3 +701,28 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 @keyframes fox-ear-life{0%,68%,76%,100%{transform:translateY(80px) scale(.97) rotate(0)}71%{transform:translateY(79px) scale(.97) rotate(-.45deg)}73%{transform:translateY(80px) scale(.97) rotate(.3deg)}}
 @keyframes rabbit-ear-life{0%,62%,71%,100%{transform:translateY(80px) scale(.97) rotate(0)}65%{transform:translateY(79px) scale(.97) rotate(.38deg)}68%{transform:translateY(80px) scale(.97) rotate(-.28deg)}}
 @keyframes tavern-host-seated{0%,100%{transform:translateY(80px) scale(1)}50%{transform:translateY(78px) scale(1.006)}}
+
+/* Battle 参考图分层重构：背景 → 完整落座角色 → 桌面交互 → HUD；不再使用整屏前景 PNG。 */
+@media(min-width:900px){
+  .battle>.battle-scene{z-index:1}
+  .battle>.battle-scene img{filter:brightness(.82) saturate(.98) contrast(1.04)}
+  .battle>.battle-scene:after{background:linear-gradient(90deg,rgba(5,2,1,.18),transparent 16% 84%,rgba(5,2,1,.2)),linear-gradient(180deg,rgba(4,1,1,.06),transparent 68%,rgba(4,1,1,.2))}
+  .battle .table-occlusion-mask{display:none!important}
+  .battle .tavern-host{display:none}
+
+  .battle .opponents{z-index:6;left:16%;right:17%;top:10%;height:45%;gap:1.5%;align-items:end;overflow:visible}
+  .battle .opponent{height:100%;overflow:visible;filter:drop-shadow(0 14px 10px rgba(0,0,0,.72))}
+  .battle .opponent .avatar{inset:0!important;overflow:visible}
+  .battle .opponent .portrait-motion{inset:0;overflow:visible}
+  .battle .opponent .portrait-motion>img{opacity:1!important;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain!important;object-position:center bottom!important;transform:none!important;mask-image:linear-gradient(#000 0 96%,transparent 100%);-webkit-mask-image:linear-gradient(#000 0 96%,transparent 100%);filter:brightness(.94) saturate(.98) contrast(1.04) drop-shadow(0 8px 5px rgba(0,0,0,.65))}
+  .battle .opponent:nth-child(1) .avatar{inset:9% -4% 0 -4%!important}
+  .battle .opponent:nth-child(2) .avatar{inset:-2% -3% 0 -3%!important}
+  .battle .opponent:nth-child(3) .avatar{inset:-5% -2% 0 -2%!important}
+  .battle .opponent>div{z-index:8;width:126px;padding:3px 6px;text-shadow:0 2px 3px #000,0 0 9px #000}
+  .battle .opponent:nth-child(1)>div{left:-3%;top:5%}.battle .opponent:nth-child(2)>div{left:-18%;right:auto;top:4%}.battle .opponent:nth-child(3)>div{right:-32%;top:8%}
+
+  .battle .table-zone{z-index:8;left:34%;top:47%;width:33%;height:25%}
+  .battle .table-zone:before{inset:6% -55% -8%;border-bottom:1px solid rgba(238,178,93,.48);box-shadow:0 12px 22px rgba(0,0,0,.25)}
+  .battle .speech{z-index:14;top:-128%}
+  .battle .topbar,.battle .battle-brand,.battle .player-strip,.battle .hand-area,.battle .controls,.battle .items,.battle .motion-log{z-index:30}
+}
