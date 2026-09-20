@@ -769,3 +769,11 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .opponent:nth-child(4) .avatar{inset:6% 10% 0!important}
   .battle .opponent:nth-child(1)>div{top:29%}.battle .opponent:nth-child(2)>div{top:25%}.battle .opponent:nth-child(3)>div{top:30%}.battle .opponent:nth-child(4)>div{top:34%}
 }
+
+
+/* Battle Visual V1.0 玩法叠加：仅在既有角色与桌面锚点中显示隐藏手牌及出牌数量。 */
+.battle .ai-hand-backs{position:absolute;z-index:7;left:50%;top:58%;translate:-50% 0;display:flex;align-items:flex-end;justify-content:center;width:76px;height:46px;pointer-events:none}
+.battle .ai-hand-backs i{display:block;width:25px;height:37px;margin-inline:-7px;border:1px solid #d6aa61;border-radius:3px;background:repeating-linear-gradient(45deg,#21111d 0 4px,#573047 5px 8px);box-shadow:0 3px 5px #000b;transform-origin:50% 100%}
+.battle .ai-hand-backs i:nth-child(1){rotate:-12deg}.battle .ai-hand-backs i:nth-child(2){rotate:-6deg}.battle .ai-hand-backs i:nth-last-child(2){rotate:6deg}.battle .ai-hand-backs i:last-child{rotate:12deg}
+.battle .center-card[data-count]:after{content:"×" attr(data-count);position:absolute;right:-13px;top:-12px;display:grid;place-items:center;min-width:25px;height:25px;padding-inline:3px;border:1px solid #e1b35d;border-radius:50%;background:#180b06;color:#ffe2a0;font:800 11px/1 Georgia;box-shadow:0 3px 9px #000c}
+@media(max-width:899px){.battle .ai-hand-backs{top:55%;scale:.72}.battle .center-card[data-count]:after{right:-9px;top:-9px}}

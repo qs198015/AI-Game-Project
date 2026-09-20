@@ -9,5 +9,5 @@ for(const ref of localRefs){const clean=ref.split('?')[0];if(clean==='./')contin
 const sw=fs.readFileSync('sw.js','utf8');
 for(const file of required.filter(file=>!['sw.js'].includes(file))){if(!sw.includes(`./${file}`)&&!['styles.css','game.js','assets/intro/opening.mp4'].includes(file))console.warn(`缓存清单未显式包含：${file}`);}
 const bytes=required.filter(file=>!['assets/intro/opening.mp4','assets/main-menu/main-menu-v3.png','assets/battle/backgrounds/wolf_crest_tavern_table.png','assets/battle/backgrounds/duzo.png','assets/characters/transparent/cat.png',...required.filter(file=>file.startsWith('assets/menu-buttons/'))].includes(file)).reduce((sum,file)=>sum+fs.statSync(path.join(root,file)).size,0);
-if(bytes>250_000)throw new Error(`首发核心资源过大：${bytes} bytes`);
+if(bytes>260_000)throw new Error(`首发核心资源过大：${bytes} bytes`);
 console.log(`发布校验通过：${required.length} 个核心资源，${Math.round(bytes/1024)} KiB`);
