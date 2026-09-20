@@ -584,7 +584,7 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .opponent>div .affinity{height:3px;background:#130704aa}.battle .opponent.active>div{outline:0;box-shadow:none}
 
   .tavern-host{display:block;position:absolute;z-index:3;right:1.5%;top:15%;width:13%;height:31%;pointer-events:none;filter:brightness(.78) saturate(.8) drop-shadow(0 10px 8px #000b)}
-  .tavern-host img{width:100%;height:100%;object-fit:contain;object-position:center bottom;animation:character-breath-depth 5.9s -2.1s ease-in-out infinite}
+  .tavern-host img{width:100%;height:100%;object-fit:contain;object-position:center bottom;animation:tavern-host-seated 5.9s -2.1s ease-in-out infinite}
   .battle:has(.opponent.character-crow) .tavern-host{display:none}
 
   .table-occlusion-mask{display:block;position:absolute;z-index:20;left:0;top:28%;width:100%;height:auto;pointer-events:none;filter:brightness(.72) saturate(.88) contrast(1.08)}
@@ -696,7 +696,8 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 
 /* 角色落座微调：只改变透明立绘与既有桌面遮挡的 transform。 */
 @media(min-width:900px){
-  .battle .opponent:nth-child(1) .portrait-motion>img{transform:translateY(9%) scale(.97);transform-origin:center bottom}
+  .battle .opponent:nth-child(1) .portrait-motion>img{transform:translateY(90px) scale(.97);transform-origin:center bottom}
 }
-@keyframes fox-ear-life{0%,68%,76%,100%{transform:translateY(11%) scale(.97) rotate(0)}71%{transform:translateY(calc(11% - 1px)) scale(.97) rotate(-.45deg)}73%{transform:translateY(11%) scale(.97) rotate(.3deg)}}
-@keyframes rabbit-ear-life{0%,62%,71%,100%{transform:translateY(12%) scale(.97) rotate(0)}65%{transform:translateY(calc(12% - 1px)) scale(.97) rotate(.38deg)}68%{transform:translateY(12%) scale(.97) rotate(-.28deg)}}
+@keyframes fox-ear-life{0%,68%,76%,100%{transform:translateY(80px) scale(.97) rotate(0)}71%{transform:translateY(79px) scale(.97) rotate(-.45deg)}73%{transform:translateY(80px) scale(.97) rotate(.3deg)}}
+@keyframes rabbit-ear-life{0%,62%,71%,100%{transform:translateY(80px) scale(.97) rotate(0)}65%{transform:translateY(79px) scale(.97) rotate(.38deg)}68%{transform:translateY(80px) scale(.97) rotate(-.28deg)}}
+@keyframes tavern-host-seated{0%,100%{transform:translateY(80px) scale(1)}50%{transform:translateY(78px) scale(1.006)}}
