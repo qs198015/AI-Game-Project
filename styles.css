@@ -781,10 +781,10 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 /* Battle 对手信息组件：姓名 → 浅色对白 → 红心 → 可信度。仅叠加 UI，不移动 V1.0 场景锚点。 */
 @media(min-width:900px){
   .battle .speech{display:none}
-  .battle .opponent>.opponent-info{position:absolute;z-index:32;width:200px;margin:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;backdrop-filter:none!important;text-align:left;text-shadow:0 2px 4px #000;pointer-events:none}
-  .battle .opponent:nth-child(1)>.opponent-info{left:-55%;top:-2%}
-  .battle .opponent:nth-child(2)>.opponent-info{left:75%;right:auto;top:18%}
-  .battle .opponent:nth-child(3)>.opponent-info{left:95%;right:auto;top:22%}
+  .battle .opponent>.opponent-info{position:absolute;z-index:32;width:200px;--hud-offset-x:20px;--hud-offset-y:70px;top:0;translate:var(--hud-offset-x) var(--hud-offset-y);margin:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;backdrop-filter:none!important;text-align:left;text-shadow:0 2px 4px #000;pointer-events:none}
+  .battle .opponent:nth-child(1)>.opponent-info{left:-59%}
+  .battle .opponent:nth-child(2)>.opponent-info{left:91%;right:auto}
+  .battle .opponent:nth-child(3)>.opponent-info{left:100%;right:auto}
   .battle .opponent:nth-child(4)>.opponent-info{right:58%;top:4%}
   .battle .opponent-name{display:block;margin:0 0 4px;padding-left:8px;color:#ffe6b0;font:900 20px/1.15 Georgia,"Songti SC",serif;letter-spacing:.06em;text-shadow:0 2px 3px #000,0 0 8px #000}
   .battle .opponent-dialogue{position:relative;display:none;min-height:68px;margin:0 0 10px;padding:12px 14px;border:1px solid #c7ad8c;border-radius:13px 13px 13px 4px;background:linear-gradient(145deg,#fff8eb,#ded0bd);box-shadow:0 6px 16px #0009,inset 0 0 0 1px #fff;color:#24150f;font:650 14px/1.45 "Songti SC","Microsoft YaHei",serif;text-shadow:none;quotes:none}
