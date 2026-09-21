@@ -781,6 +781,10 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
 /* Battle 对手信息组件：姓名 → 浅色对白 → 红心 → 可信度。仅叠加 UI，不移动 V1.0 场景锚点。 */
 @media(min-width:900px){
   .battle .speech{display:none}
+  /* 铁牙信息脱离角色 z-index:5 的堆叠上下文，固定在耳侧并始终高于玩家前景层。 */
+  .battle .ironfang-hud-layer{position:absolute;z-index:31;left:13%;top:11%;width:200px;pointer-events:none}
+  .battle .ironfang-hud-layer>.opponent-info{position:relative;width:200px;margin:0;padding:0;border:0;background:none;box-shadow:none;text-align:left;text-shadow:0 2px 4px #000}
+  .battle .opponent.character-fang>.opponent-info{display:none}
   .battle .opponent>.opponent-info{position:absolute;z-index:32;width:200px;--hud-offset-x:20px;--hud-offset-y:70px;top:0;translate:var(--hud-offset-x) var(--hud-offset-y);margin:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;backdrop-filter:none!important;text-align:left;text-shadow:0 2px 4px #000;pointer-events:none}
   .battle .opponent:nth-child(1)>.opponent-info{left:-59%}
   .battle .opponent:nth-child(2)>.opponent-info{left:91%;right:auto}
@@ -792,11 +796,12 @@ body.penalty-vignette:after{content:"";position:fixed;z-index:999;inset:0;pointe
   .battle .opponent-dialogue:after{content:"";position:absolute;left:17px;bottom:-9px;border:9px solid transparent;border-top-color:#ded0bd;border-bottom:0}
   .battle .opponent-hearts{display:flex;align-items:center;gap:4px;min-height:26px;margin:0 0 5px 8px;white-space:nowrap}
   .battle .opponent-hearts .heart-icon{width:26px;height:23px;margin-right:2px;background-size:372% 365%}
-  .battle .opponent>.opponent-info .opponent-trust{display:block;margin-left:8px;color:#fff0cf;font:900 16px/1.4 "Microsoft YaHei",sans-serif;text-shadow:0 2px 3px #000,0 0 7px #000}
-  .battle .opponent>.opponent-info .pet-status{display:none}
-  .battle .opponent.active>.opponent-info .opponent-name{color:#ffd16f}
+  .battle :is(.opponent>.opponent-info,.ironfang-hud-layer>.opponent-info) .opponent-trust{display:block;margin-left:8px;color:#fff0cf;font:900 16px/1.4 "Microsoft YaHei",sans-serif;text-shadow:0 2px 3px #000,0 0 7px #000}
+  .battle :is(.opponent>.opponent-info,.ironfang-hud-layer>.opponent-info) .pet-status{display:none}
+  .battle :is(.opponent.active>.opponent-info,.ironfang-hud-layer>.opponent-info) .opponent-name{color:#ffd16f}
 }
 @media(max-width:899px){
+  .battle .ironfang-hud-layer{display:none}
   .battle .opponent>.opponent-info{position:absolute;z-index:32;left:50%;top:58%;width:96px;translate:-50% 0;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;text-align:center;pointer-events:none}
   .battle .opponent-name{display:block;color:#ffe2a2;font-weight:800;text-shadow:0 2px 3px #000}
   .battle .opponent-dialogue{display:none!important}
