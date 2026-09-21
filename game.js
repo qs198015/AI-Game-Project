@@ -28,6 +28,9 @@
     {id:'snow',name:'雪球',emoji:'🐰',art:'assets/characters/transparent/rabbit.png',title:'危险贵族',rarity:'稀有',difficulty:2,personality:'用无辜和慌张隐藏真正意图，容错率较高。',tags:['无辜','慌张','危险'],quote:'我没有骗人，是鸡腿教我的。',skill:'纯洁眼神',desc:'无辜表演被怀疑的概率更低。',color:'#9fc9d6',portrait:'assets/characters/transparent/rabbit.png'}
   ];
   const AI = [
+    {id:'shadow',name:'夜影',emoji:'🐱',art:'assets/characters/transparent/cat.png',portrait:'assets/characters/transparent/cat.png',color:'#8f75d6',title:'九命诈骗师',personality:'冷静机会主义',skill:'猫的直觉',trust:50,maxHp:3,hp:3,lie:0.56,doubt:0.58,judgeMode:'probability',
+      hello:'我不赌运气，只赌你会犹豫。',tells:['胡须轻轻抖了一下','指尖慢慢敲着牌背','金色眼睛避开了半秒'],
+      claims:['月光可以作证。','别急着怀疑自己的直觉。','这一次，我说的是真话。']},
     {id:'fang',name:'铁牙',emoji:'🐺',art:'assets/characters/transparent/dog.png',portrait:'assets/characters/transparent/dog.png',color:'#a77745',title:'直觉派保镖',personality:'强硬直率',skill:'猎犬嗅觉',trust:45,maxHp:3,hp:3,lie:0.28,doubt:0.38,judgeMode:'impulsive',
       hello:'我闻得出谎话。除了我自己的。', tells:['爪子在桌下数拍子','认真闻了闻牌背','露出一颗很诚实的牙'],
       claims:['凭我的狗格担保。','骨头作证，我没撒谎！','看我真诚的鼻子。']},
@@ -146,7 +149,8 @@
     const playback=els.introVideo.play?.();
     playback?.then?.(()=>fadeVideoIn()).catch?.(()=>{els.introVideo.muted=true;els.introVideo.play?.().catch?.(()=>{});});
   }
-  function freshState(){const rivals=AI.filter(ai=>['fang','tail','snow'].includes(ai.id)).map(x=>({...x,mood:'idle',reaction:null,quip:'',lastSpeech:'',isSpeaking:false,hand:Array.from({length:5},()=>rand(CARDS))}));return {player:PLAYERS.find(p=>p.id===selectedPlayer)||PLAYERS[0],playerMood:'idle',playerReaction:null,playerQuip:'',playerHp:4,playerTrust:50,rivals,active:0,round:1,maxRounds:8,coins:0,streak:0,suspicion:null,skipMotion:false,hand:[],selected:[],performance:'calm',phase:'player',move:null,lieHistory:[],items:Object.fromEntries(ITEMS.map(x=>[x.id,true])),penalties:{roulette:false,liar:false,accept:false},pendingPenalty:false,penaltyContinue:null,forceTrust:false,boss:false,bossDefeated:false,sound:save.sound,activeEvent:null,dodged:false,honeyUsed:false,roundHistory:[],roundStage:'player',aiQueue:[],aiTurnIndex:-1,gameOver:false};}
+  function createRivals(playerId){return AI.filter(ai=>['shadow','fang','tail','snow'].includes(ai.id)&&ai.id!==playerId).map(x=>({...x,mood:'idle',reaction:null,quip:'',lastSpeech:'',isSpeaking:false,hand:Array.from({length:5},()=>rand(CARDS))}));}
+  function freshState(){const rivals=createRivals(selectedPlayer);return {player:PLAYERS.find(p=>p.id===selectedPlayer)||PLAYERS[0],playerMood:'idle',playerReaction:null,playerQuip:'',playerHp:4,playerTrust:50,rivals,active:0,round:1,maxRounds:8,coins:0,streak:0,suspicion:null,skipMotion:false,hand:[],selected:[],performance:'calm',phase:'player',move:null,lieHistory:[],items:Object.fromEntries(ITEMS.map(x=>[x.id,true])),penalties:{roulette:false,liar:false,accept:false},pendingPenalty:false,penaltyContinue:null,forceTrust:false,boss:false,bossDefeated:false,sound:save.sound,activeEvent:null,dodged:false,honeyUsed:false,roundHistory:[],roundStage:'player',aiQueue:[],aiTurnIndex:-1,gameOver:false};}
   function tone(kind='tap'){
     if(!(state?.sound??save.sound)) return;
     try{audio ||= new (window.AudioContext||window.webkitAudioContext)();const o=audio.createOscillator(),g=audio.createGain();o.connect(g);g.connect(audio.destination);o.type=kind==='bad'?'sawtooth':'triangle';o.frequency.value={tap:260,good:520,bad:110}[kind];g.gain.setValueAtTime(.045,audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.16);o.start();o.stop(audio.currentTime+.17);}catch(_){/* 音效接口在不支持 Web Audio 时静默降级 */}
@@ -280,5 +284,5 @@
   scheduleBattleBlink();
   if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
   playIntro();
-  window.__BLACK_MOON__={CARDS,AI,PLAYERS,EVENTS,ACHIEVEMENTS,MENU_BUTTON_ASSETS,claimTrue,freshState,endIntro,debug:{getState:()=>state,startBoss,beginRound,startAISequence,advanceAISequence,advance,resolvePenalty,cueReaction,cameraEffect,aiChallengeChance}};
+  window.__BLACK_MOON__={CARDS,AI,PLAYERS,EVENTS,ACHIEVEMENTS,MENU_BUTTON_ASSETS,claimTrue,createRivals,freshState,endIntro,debug:{getState:()=>state,startBoss,beginRound,startAISequence,advanceAISequence,advance,resolvePenalty,cueReaction,cameraEffect,aiChallengeChance}};
 })();
